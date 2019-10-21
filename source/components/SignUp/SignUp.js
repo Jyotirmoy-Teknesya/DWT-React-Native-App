@@ -203,7 +203,7 @@ import { LoginManager, AccessToken, GraphRequest, GraphRequestManager } from 're
                     placeholderTextColor='white'
                     underlineColorAndroid='transparent'
                     autoCorrect={false}
-                    style={styles.inputTxt}
+                    style={[styles.inputTxt,{textAlign: I18nManager.isRTL ? 'right' : 'left'}]}
                   />
                 </View>
               </View>

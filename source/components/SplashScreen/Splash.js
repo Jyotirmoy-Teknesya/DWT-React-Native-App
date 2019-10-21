@@ -20,7 +20,7 @@ import ApiController from '../../ApiController/ApiController';
     orderStore.settings = null;
     // API calling...
     this.setState({ loading: true })
-    let response = await ApiController.get('settings');
+    let response = await ApiController.post('settings');
     console.log('settings=',response);
     orderStore.settings = response;
     if (orderStore.settings.success === true) {
@@ -31,9 +31,9 @@ import ApiController from '../../ApiController/ApiController';
       Toast.show('Check your internet and try again', Toast.LONG);
     }
   }
-  componentWillMount(){
+  componentWillMount=async()=>{
     if(NetInfo.isConnected){
-       this.splash(true)
+       await this.splash(true)
     }
   }
   // componentDidMount() {

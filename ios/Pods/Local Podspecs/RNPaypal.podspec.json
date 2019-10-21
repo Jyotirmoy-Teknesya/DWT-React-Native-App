@@ -1,0 +1,28 @@
+{
+  "name": "RNPaypal",
+  "version": "1.0.9",
+  "summary": "A wrapper for the paypal sdk for both android and ios.",
+  "description": "RNPaypal",
+  "homepage": "n/a",
+  "license": "MIT",
+  "authors": {
+    "zeddz92": "lopezredd@gmail.com"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source": {
+    "git": "https://github.com/zeddz92/react-native-paypal.git",
+    "tag": "master"
+  },
+  "source_files": "RNPaypal/**/*.{h,m}",
+  "requires_arc": true,
+  "dependencies": {
+    "React": [
+
+    ],
+    "PayPal-iOS-SDK": [
+
+    ]
+  }
+}

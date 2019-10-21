@@ -8,6 +8,9 @@ import android.content.pm.Signature;
 import android.util.Base64;
 import android.util.Log;
 
+// import com.facebook.ads.AudienceNetworkAds; // <-- add this
+// import suraj.tiwari.reactnativefbads.FBAdsPackage; // <-- add this
+
 import com.facebook.CallbackManager;
 import com.facebook.FacebookSdk;
 import com.facebook.reactnative.androidsdk.FBSDKPackage;
@@ -16,6 +19,10 @@ import com.facebook.appevents.AppEventsLogger;
 import com.agontuk.RNFusedLocation.RNFusedLocationPackage;
 import com.airbnb.android.react.maps.MapsPackage;
 import com.facebook.react.ReactApplication;
+import com.sbugert.rnadmob.RNAdMobPackage;
+import com.dooboolab.RNIap.RNIapPackage;
+import com.reactlibrary.RNPaypalPackage;
+import com.gettipsi.stripe.StripeReactPackage;
 import com.airbnb.android.react.lottie.LottiePackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.swmansion.reanimated.ReanimatedPackage;
@@ -52,6 +59,11 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            // new FBAdsPackage(),
+            new RNAdMobPackage(),
+            new RNIapPackage(),
+            new RNPaypalPackage(),
+            new StripeReactPackage(),
             new FBSDKPackage(mCallbackManager),
             new LottiePackage(),
             new RNGestureHandlerPackage(),
@@ -80,6 +92,7 @@ public class MainApplication extends Application implements ReactApplication {
   public void onCreate() {
     super.onCreate();
     SoLoader.init(this, /* native exopackage */ false);
+    // AudienceNetworkAds.initialize(this); // <-- add this
     try {
       PackageInfo info = getPackageManager().getPackageInfo(getPackageName(), PackageManager.GET_SIGNATURES);
       for (Signature signature : info.signatures) {

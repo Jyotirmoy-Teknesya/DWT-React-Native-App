@@ -122,9 +122,10 @@ export default class SignIn extends Component<Props> {
     if (response.success === true) {
       store.LOGIN_TYPE = 'local';
       await LocalDB.saveProfile(this.state.email, this.state.password, response.data);
-      this.setState({ loading: false })
       orderStore.login.loginStatus = true;
       orderStore.login.loginResponse = response;
+      orderStore.settings.data.package = response.data.package;
+      this.setState({ loading: false })
       this.props.navigation.push('Drawer');
     } else {
       this.setState({ loading: false })
@@ -167,7 +168,7 @@ export default class SignIn extends Component<Props> {
                       keyboardType='email-address'
                       underlineColorAndroid='transparent'
                       autoCorrect={true}
-                      style={styles.inputTxt}
+                      style={[styles.inputTxt,{textAlign: 'left' }]}
                     />
                   </View>
                 </View>
