@@ -20,8 +20,8 @@
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
+		189FFD9A235DA9C00061B4C8 /* libFBSDKCoreKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 189FFD99235DA9C00061B4C8 /* libFBSDKCoreKit.a */; };
 		1C25F3FE2150FF960000BF77 /* libART.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C25F3D32150FF6A0000BF77 /* libART.a */; };
-		1C544D10216CE277006D3F5A /* libReact-Native-Webview-Bridge.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C544CFD216CE22E006D3F5A /* libReact-Native-Webview-Bridge.a */; };
 		1C65446A217D8EB5008A4E56 /* libQBImagePickerController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C654469217D8EB5008A4E56 /* libQBImagePickerController.a */; };
 		1C6544E9217D9156008A4E56 /* libGoogle-Maps-iOS-Utils.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C6544E8217D9156008A4E56 /* libGoogle-Maps-iOS-Utils.a */; };
 		1CF7E2B82182ED75005708AF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1CF7E28B2182ED75005708AF /* GoogleService-Info.plist */; };
@@ -40,7 +40,6 @@
 		7B14B861EC7B4C4A800F562F /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AFB471CD06A648139C490476 /* FontAwesome5_Regular.ttf */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		88C2834E24E44AF2BCE6292E /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13725F66DE5A4E2686F62F56 /* Entypo.ttf */; };
-		8B0FFD2D9B5B4B4CB0795DBD /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D296802A4EF43B3B80E4B9E /* libRNVectorIcons.a */; };
 		8CCC7411571D424497D547AE /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A7EAAEB53A304DCA862E6A96 /* Feather.ttf */; };
 		96962EA222E1EE00002A2402 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96962EA122E1EE00002A2402 /* StoreKit.framework */; };
 		96F25E772281792C00905477 /* liblottie-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96F25E762281792C00905477 /* liblottie-ios.a */; };
@@ -48,6 +47,7 @@
 		9A0A6CC164AC4FFD9EE194B2 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 01DC7C7FF0164CEAA8C740DA /* MaterialIcons.ttf */; };
 		ACE082AAC87A469A90221AD3 /* libRNAdMobManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 239113700FF54C0AA12FC7E0 /* libRNAdMobManager.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
+		BE2A1A57F289434D838A34E2 /* libReact-Native-Webview-Bridge.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D8C6CFADC58646E797E335F4 /* libReact-Native-Webview-Bridge.a */; };
 		CE2BFC532EB645798958C7AA /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EDEA3D7E9FE3487EA3FA558A /* Zocial.ttf */; };
 		D01C6190CC204AB79BE9171F /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C04EB78301B2473287E62E70 /* SimpleLineIcons.ttf */; };
 		E3504E94E94943B6BBB1C74A /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3BFB9C82ED024E608010DD5A /* Ionicons.ttf */; };
@@ -131,13 +131,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = 323A12871E5F266B004975B8;
 			remoteInfo = "ART-tvOS";
-		};
-		1C544CFC216CE22E006D3F5A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1C544CE0216CE22E006D3F5A /* React-Native-Webview-Bridge.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 4114DC4C1C187C3A003CD988;
-			remoteInfo = "React-Native-Webview-Bridge";
 		};
 		1C8E60E7214FB9C10062633F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -414,9 +407,12 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = DWT/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = DWT/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
+		189FFD93235DA94C0061B4C8 /* libFBSDKCoreKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libFBSDKCoreKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		189FFD95235DA94C0061B4C8 /* libFBSDKLoginKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libFBSDKLoginKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		189FFD97235DA94C0061B4C8 /* libFBSDKShareKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libFBSDKShareKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		189FFD99235DA9C00061B4C8 /* libFBSDKCoreKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libFBSDKCoreKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		18B2516D710A4DE48D431185 /* OpenSans.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = OpenSans.ttf; path = ../res/fonts/OpenSans.ttf; sourceTree = "<group>"; };
 		1C25F3CD2150FF6A0000BF77 /* ART.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ART.xcodeproj; path = "../node_modules/react-native/Libraries/ART/ART.xcodeproj"; sourceTree = "<group>"; };
-		1C544CE0216CE22E006D3F5A /* React-Native-Webview-Bridge.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "React-Native-Webview-Bridge.xcodeproj"; path = "../node_modules/react-native-webview-bridge-updated/ios/React-Native-Webview-Bridge.xcodeproj"; sourceTree = "<group>"; };
 		1C654469217D8EB5008A4E56 /* libQBImagePickerController.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libQBImagePickerController.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C6544E8217D9156008A4E56 /* libGoogle-Maps-iOS-Utils.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libGoogle-Maps-iOS-Utils.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CF7E28B2182ED75005708AF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -449,6 +445,8 @@
 		B2470B4BE25FB729AF8BDD93 /* Pods-DWT.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DWT.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DWT/Pods-DWT.debug.xcconfig"; sourceTree = "<group>"; };
 		B8CED0A05831464DB688A6F2 /* ReactNativeAdsFacebook.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = ReactNativeAdsFacebook.xcodeproj; path = "../node_modules/react-native-fbads/ios/ReactNativeAdsFacebook.xcodeproj"; sourceTree = "<group>"; };
 		C04EB78301B2473287E62E70 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
+		D79B2A0D5ADA4DB7A9330546 /* React-Native-Webview-Bridge.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = "React-Native-Webview-Bridge.xcodeproj"; path = "../node_modules/react-native-webview-bridge/ios/React-Native-Webview-Bridge.xcodeproj"; sourceTree = "<group>"; };
+		D8C6CFADC58646E797E335F4 /* libReact-Native-Webview-Bridge.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = "libReact-Native-Webview-Bridge.a"; sourceTree = "<group>"; };
 		DB5867F617C642B1981FD6B6 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
 		EDEA3D7E9FE3487EA3FA558A /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		FFB475399F134C0CA4947DDF /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
@@ -459,10 +457,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				189FFD9A235DA9C00061B4C8 /* libFBSDKCoreKit.a in Frameworks */,
 				96F25E772281792C00905477 /* liblottie-ios.a in Frameworks */,
 				1C6544E9217D9156008A4E56 /* libGoogle-Maps-iOS-Utils.a in Frameworks */,
 				1C65446A217D8EB5008A4E56 /* libQBImagePickerController.a in Frameworks */,
-				1C544D10216CE277006D3F5A /* libReact-Native-Webview-Bridge.a in Frameworks */,
 				1C25F3FE2150FF960000BF77 /* libART.a in Frameworks */,
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
@@ -477,12 +475,12 @@
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
-				8B0FFD2D9B5B4B4CB0795DBD /* libRNVectorIcons.a in Frameworks */,
 				57DB9CEE509ADEB301070C55 /* libPods-DWT.a in Frameworks */,
 				4EE83A47A74E40B298879738 /* libLRDRCTSimpleToast.a in Frameworks */,
 				96962EA222E1EE00002A2402 /* StoreKit.framework in Frameworks */,
 				ACE082AAC87A469A90221AD3 /* libRNAdMobManager.a in Frameworks */,
 				63F8BF5CECA34CF4A0A36328 /* libReactNativeAdsFacebook.a in Frameworks */,
+				BE2A1A57F289434D838A34E2 /* libReact-Native-Webview-Bridge.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -623,14 +621,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		1C544CE1216CE22E006D3F5A /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				1C544CFD216CE22E006D3F5A /* libReact-Native-Webview-Bridge.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		1C8E60B8214FB9C10062633F /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -638,6 +628,7 @@
 				0EAA7E700D2C42A9B91B293C /* libLRDRCTSimpleToast.a */,
 				239113700FF54C0AA12FC7E0 /* libRNAdMobManager.a */,
 				11825ADF4EA44805927E9232 /* libReactNativeAdsFacebook.a */,
+				D8C6CFADC58646E797E335F4 /* libReact-Native-Webview-Bridge.a */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -661,6 +652,10 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				189FFD99235DA9C00061B4C8 /* libFBSDKCoreKit.a */,
+				189FFD93235DA94C0061B4C8 /* libFBSDKCoreKit.a */,
+				189FFD95235DA94C0061B4C8 /* libFBSDKLoginKit.a */,
+				189FFD97235DA94C0061B4C8 /* libFBSDKShareKit.a */,
 				96962EA122E1EE00002A2402 /* StoreKit.framework */,
 				96F25E762281792C00905477 /* liblottie-ios.a */,
 				1C6544E8217D9156008A4E56 /* libGoogle-Maps-iOS-Utils.a */,
@@ -726,7 +721,6 @@
 			isa = PBXGroup;
 			children = (
 				9604DCAC22BB78710037C09E /* RCTFBSDK.xcodeproj */,
-				1C544CE0216CE22E006D3F5A /* React-Native-Webview-Bridge.xcodeproj */,
 				1C25F3CD2150FF6A0000BF77 /* ART.xcodeproj */,
 				1C8E60F8214FBC760062633F /* RNShineButton */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
@@ -745,6 +739,7 @@
 				6A9C78C3BCC647959D196458 /* LRDRCTSimpleToast.xcodeproj */,
 				267314B6F7C24857B161C811 /* RNAdMobManager.xcodeproj */,
 				B8CED0A05831464DB688A6F2 /* ReactNativeAdsFacebook.xcodeproj */,
+				D79B2A0D5ADA4DB7A9330546 /* React-Native-Webview-Bridge.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -933,10 +928,6 @@
 					ProjectRef = 139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */;
 				},
 				{
-					ProductGroup = 1C544CE1216CE22E006D3F5A /* Products */;
-					ProjectRef = 1C544CE0216CE22E006D3F5A /* React-Native-Webview-Bridge.xcodeproj */;
-				},
-				{
 					ProductGroup = 146834001AC3E56700842450 /* Products */;
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
 				},
@@ -1036,13 +1027,6 @@
 			fileType = archive.ar;
 			path = "libART-tvOS.a";
 			remoteRef = 1C25F3D42150FF6A0000BF77 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		1C544CFD216CE22E006D3F5A /* libReact-Native-Webview-Bridge.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libReact-Native-Webview-Bridge.a";
-			remoteRef = 1C544CFC216CE22E006D3F5A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		1C8E60E8214FB9C10062633F /* libRNVectorIcons.a */ = {
@@ -1427,13 +1411,13 @@
 					"$(SRCROOT)/../node_modules/react-native-facebook-login/RCTFBLogin/**",
 					"$(SRCROOT)/../node_modules/react-native-admob/ios",
 					"$(SRCROOT)/../node_modules/react-native-fbads/ios/ReactNativeAdsFacebook",
+					"$(SRCROOT)/../node_modules/react-native-webview-bridge/ios",
 				);
 				INFOPLIST_FILE = DWT/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/DWT\"",
 					"\"$(SRCROOT)/DWT\"",
 				);
 				OTHER_LDFLAGS = (
@@ -1473,13 +1457,13 @@
 					"$(SRCROOT)/../node_modules/react-native-facebook-login/RCTFBLogin/**",
 					"$(SRCROOT)/../node_modules/react-native-admob/ios",
 					"$(SRCROOT)/../node_modules/react-native-fbads/ios/ReactNativeAdsFacebook",
+					"$(SRCROOT)/../node_modules/react-native-webview-bridge/ios",
 				);
 				INFOPLIST_FILE = DWT/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/DWT\"",
 					"\"$(SRCROOT)/DWT\"",
 				);
 				OTHER_LDFLAGS = (
