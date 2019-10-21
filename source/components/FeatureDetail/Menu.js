@@ -52,7 +52,7 @@ const titles = 1.8;
     }
 
     static navigationOptions = { header: null };
-    componentWillMount() {
+    UNSAFE_componentWillMount() {
         let { orderStore } = Store;
         let data = orderStore.home.FEATURE_DETAIL.data.listing_detial;
         for (let i = 0; i < data.menu.tab_list.length; i++) {

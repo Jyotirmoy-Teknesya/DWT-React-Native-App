@@ -54,7 +54,7 @@ class EditProfile extends Component<Props> {
 
   static navigationOptions = { header: null };
 
-  componentWillMount = async () => {
+  UNSAFE_componentWillMount = async () => {
     _this = this;
     await this.getChangePassword()
     let data = store.USER_PROFILE.data.edit_profile;

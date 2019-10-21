@@ -29,7 +29,7 @@ import Listings from './Listings';
       backgroundColor: store.settings.data.navbar_clr
     }
   });
-  componentWillMount = async () => {
+  UNSAFE_componentWillMount = async () => {
       let { params } = this.props.navigation.state;
       this.setState({ loading: true })
       store.PUB_PROFILE_ID = params.profiler_id;

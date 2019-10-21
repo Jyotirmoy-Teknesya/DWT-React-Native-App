@@ -29,7 +29,7 @@ class PublishedEvents extends Component<Props> {
     this.props.navigation.setParams({ otherParam: title });
     this.props.navigation.dispatch(navigateAction);
   }
-  componentWillMount = async () => {
+  UNSAFE_componentWillMount = async () => {
     let data = store.MY_EVENTS.data.my_events.active_events;
     if (data.has_events) {
       data.events.forEach(item => {

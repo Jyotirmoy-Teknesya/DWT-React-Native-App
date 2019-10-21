@@ -26,7 +26,7 @@ import { withNavigation } from 'react-navigation';
   static navigationOptions = {
     header: null,
   };
-  componentWillMount = async () => {
+  UNSAFE_componentWillMount = async () => {
     let data = store.USER_PROFILE.data.listing_types.pending_listings;
     if (data.has_list) {
       data.listing.forEach(item => {

@@ -20,7 +20,7 @@ class EventsTabs extends Component<Props> {
   }
   static navigationOptions = { header: null };
 
-  componentWillMount = async () => {
+  UNSAFE_componentWillMount = async () => {
     await this.getEvents()
   }
   getEvents = async () => {

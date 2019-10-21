@@ -19,6 +19,8 @@ import com.facebook.appevents.AppEventsLogger;
 import com.agontuk.RNFusedLocation.RNFusedLocationPackage;
 import com.airbnb.android.react.maps.MapsPackage;
 import com.facebook.react.ReactApplication;
+import com.reactnativecommunity.netinfo.NetInfoPackage;
+// import com.github.alinz.reactnativewebviewbridge.WebViewBridgePackage;
 import com.sbugert.rnadmob.RNAdMobPackage;
 import com.dooboolab.RNIap.RNIapPackage;
 import com.reactlibrary.RNPaypalPackage;
@@ -31,7 +33,6 @@ import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
-import com.github.alinz.reactnativewebviewbridge.WebViewBridgePackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.reactnative.ivpusic.imagepicker.PickerPackage;
 
@@ -59,6 +60,8 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new NetInfoPackage(),
+            // new WebViewBridgePackage(),
             // new FBAdsPackage(),
             new RNAdMobPackage(),
             new RNIapPackage(),
@@ -72,7 +75,6 @@ public class MainApplication extends Application implements ReactApplication {
             new MapsPackage(),
             new PickerPackage(),
             new VectorIconsPackage(),
-            new WebViewBridgePackage(),
             new RNFusedLocationPackage()
       );
     }

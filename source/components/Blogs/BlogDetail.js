@@ -45,7 +45,7 @@ export default class BlogDetail extends Component<Props> {
       backgroundColor: store.settings.data.main_clr
     }
   });
-  componentWillMount = async () => {
+  UNSAFE_componentWillMount = async () => {
     let { params } = this.props.navigation.state;
     let item = params.item;
     this.setState({ loading: true })

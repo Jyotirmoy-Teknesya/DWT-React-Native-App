@@ -29,7 +29,6 @@
 		3BA2A819918544B7BA16D0A4 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C602A3CB8724177A043CD80 /* EvilIcons.ttf */; };
 		4944D4CCF4AF4110809D8E47 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB5867F617C642B1981FD6B6 /* Foundation.ttf */; };
 		4B8FF18B7136476383287D74 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 306D8B6CD86440C6BD8C8A93 /* FontAwesome.ttf */; };
-		4EE83A47A74E40B298879738 /* libLRDRCTSimpleToast.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EAA7E700D2C42A9B91B293C /* libLRDRCTSimpleToast.a */; };
 		529C5A0C1D44498AAB892C9F /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 95BF8A7C63814DF09BB6D600 /* Montserrat-SemiBold.ttf */; };
 		57DB9CEE509ADEB301070C55 /* libPods-DWT.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C76196D0FB62EC759433F2A /* libPods-DWT.a */; };
 		57E50FE1423841DEB9E9142E /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FFB475399F134C0CA4947DDF /* FontAwesome5_Solid.ttf */; };
@@ -476,7 +475,6 @@
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				57DB9CEE509ADEB301070C55 /* libPods-DWT.a in Frameworks */,
-				4EE83A47A74E40B298879738 /* libLRDRCTSimpleToast.a in Frameworks */,
 				96962EA222E1EE00002A2402 /* StoreKit.framework in Frameworks */,
 				ACE082AAC87A469A90221AD3 /* libRNAdMobManager.a in Frameworks */,
 				63F8BF5CECA34CF4A0A36328 /* libReactNativeAdsFacebook.a in Frameworks */,

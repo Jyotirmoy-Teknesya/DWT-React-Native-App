@@ -27,7 +27,7 @@ export default class ListingTabCon extends Component<Props> {
     },
   });
 
-  componentWillMount = async () => {
+  UNSAFE_componentWillMount = async () => {
     await this.listingGetService()
   }
   listingGetService = async () => {

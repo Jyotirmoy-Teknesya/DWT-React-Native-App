@@ -44,7 +44,7 @@ class FeatureDetailTabBar extends Component<Props> {
   label() {
     return 'Discription', 'new'
   }
-  componentWillMount = async () => {
+  UNSAFE_componentWillMount = async () => {
     let { orderStore } = Store;
     let { params } = this.props.navigation.state;
     orderStore.home.LIST_ID = params.listId;

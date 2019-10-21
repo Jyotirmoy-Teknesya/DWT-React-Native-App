@@ -36,7 +36,7 @@ export default class WriteReview extends Component<Props> {
   static navigationOptions = {
     header: null,
   };
-  componentWillMount = async () => {
+  UNSAFE_componentWillMount = async () => {
     let data = store.home.FEATURE_DETAIL.data.listing_detial.write_reviews;
     data.comment_media.forEach(item => {
       item.checkStatus = false;

@@ -45,7 +45,7 @@ class SubmitReview extends Component<Props> {
   static navigationOptions = {
     header: null,
   };
-  componentWillMount = async() => {
+  UNSAFE_componentWillMount = async() => {
     let data = store.USER_REVIEWS.data.submitted_reviews;
     data.commnets.forEach(item=>{
       if (item.has_media) {

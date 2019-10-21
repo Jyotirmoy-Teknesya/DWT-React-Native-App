@@ -42,7 +42,7 @@ import Toast from 'react-native-simple-toast';
       backgroundColor: navigation.state.params.headerColor
     }
   });
-  componentWillMount = async () => {
+  UNSAFE_componentWillMount = async () => {
     // calling eventDetail func
     await this.eventDetail()
 

@@ -33,7 +33,7 @@ import { LoginManager, AccessToken, GraphRequest, GraphRequestManager } from 're
   static navigationOptions = {
     header: null
   };
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     GoogleSignin.configure({
       iosClientId: '191792720370-rc4ospf26req749phf3d4l4sfj74gmf4.apps.googleusercontent.com'
     })

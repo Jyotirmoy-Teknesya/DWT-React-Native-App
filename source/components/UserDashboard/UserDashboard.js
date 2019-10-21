@@ -22,7 +22,7 @@ class UserDashboard extends Component<Props> {
   static navigationOptions = ({ navigation }) => ({
     header: null
   });
-  componentWillMount = async () => {
+  UNSAFE_componentWillMount = async () => {
       let { params } = this.props.navigation.state;
       this.setState({ loading: true })
       let response = await ApiController.post('profile');

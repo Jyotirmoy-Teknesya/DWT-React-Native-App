@@ -34,7 +34,7 @@ class PublicEvents extends Component<Props> {
     this.props.navigation.setParams({ otherParam: title });
     this.props.navigation.dispatch(navigateAction);
   }
-  componentWillMount = async () => {
+  UNSAFE_componentWillMount = async () => {
     await this.getSearchList();
   }
   componentDidMount = async() => {

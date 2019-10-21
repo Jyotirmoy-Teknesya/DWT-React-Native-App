@@ -48,7 +48,7 @@ import { COLOR_PRIMARY, COLOR_SECONDARY } from '../../../styles/common';
     this.props.navigation.setParams({ otherParam: title });
     this.props.navigation.dispatch(navigateAction);
   }
-  componentWillMount = async () => {
+  UNSAFE_componentWillMount = async () => {
     // calling homeData func
     store.SEARCH_OBJ = {};
     this.setState({ loading: true })

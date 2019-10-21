@@ -62,7 +62,7 @@ export default class EventSearching extends Component<Props> {
     //   )
     }
   };
-  componentWillMount = async() => {
+  UNSAFE_componentWillMount = async() => {
     await this.setState({ seachText: '' })
   }
   componentDidMount() {

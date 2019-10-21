@@ -42,7 +42,7 @@ class Blogs extends Component<Props> {
       console.log('catch===>>>', error);
     }
   }
-  componentWillMount = async () => {
+  UNSAFE_componentWillMount = async () => {
     // let parameter = {
     //   user_id: store.login.loginResponse.data.id
     // };

@@ -67,7 +67,7 @@ class Description extends Component<Props> {
         console.log('catch===>>>',error);
     }
  }
-  componentWillMount = async () => {
+  UNSAFE_componentWillMount = async () => {
     let { orderStore } = Store;
     let data = orderStore.home.FEATURE_DETAIL.data.listing_detial;
     // CountDown func call

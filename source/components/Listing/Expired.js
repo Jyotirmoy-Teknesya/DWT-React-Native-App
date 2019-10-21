@@ -19,7 +19,7 @@ import styles from '../../../styles/Listing/FeaturedStyleSheet';
   static navigationOptions = {
     header: null,
   };
-  componentWillMount = async () => {
+  UNSAFE_componentWillMount = async () => {
     let data = store.USER_PROFILE.data.listing_types.expired_listings;
     if (data.has_list) {
       data.listing.forEach(item => {
