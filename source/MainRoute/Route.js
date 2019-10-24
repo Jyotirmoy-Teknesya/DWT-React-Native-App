@@ -58,11 +58,11 @@ const RootStack = createStackNavigator(
       navigationOptions: ({ navigation }) => ({
         title: navigation.getParam('otherParam', store.settings.data.menu.home),
         header: (
-          <View style={[styles.overlyHeader, { backgroundColor: 'black' }]}>
+          <View style={[styles.overlyHeader, { backgroundColor: '#f9f9f9' }]}>
             <TouchableOpacity style={styles.drawerBtnCon} onPress={() => {
               navigation.toggleDrawer()
             }}>
-              <Image source={require('../images/menu_newhome.png')} style={styles.drawerBtn} />
+              <Image source={require('../images/menu_newhome2.png')} style={styles.drawerBtn} />
             </TouchableOpacity>
             <View style={styles.headerTxtCon}>
               {/* <View style={{ backgroundColor: '#fff', height: '90%', width: '90%', borderRadius: 10, alignItems: 'center', alignContent: 'center' }}> */}
@@ -74,7 +74,10 @@ const RootStack = createStackNavigator(
                   underlineColorAndroid='transparent'
                   autoCorrect={false}
                   // onFocus={() => this.navigateToScreen('SearchingScreen', 'search')}
-                  style={{ height: wp(10), paddingLeft: 15, paddingTop: 10, backgroundColor: '#fff', width: '100%', borderRadius: 8, fontSize: totalSize(1.5), }}
+                  style={{ height: wp(10), paddingLeft: 15, paddingTop: 10, backgroundColor: '#fff', width: '100%', borderRadius: 8, fontSize: totalSize(1.5), ...Platform.select({
+                    ios: { shadowColor: 'gray', shadowOpacity: 0.1, shadowRadius: 1 },
+                    android: { elevation: 1, }
+                  }), }}
                 />
 
               </View>

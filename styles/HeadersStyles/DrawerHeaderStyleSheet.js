@@ -17,7 +17,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'black',
     justifyContent: 'center',
     alignContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+   
   },
   drawerBtnCon: {
     height: wp(10),

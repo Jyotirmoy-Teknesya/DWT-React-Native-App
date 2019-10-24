@@ -1,6 +1,7 @@
 import { StyleSheet, Platform, Dimensions, I18nManager } from 'react-native';
 import { COLOR_SECONDARY, COLOR_ORANGE, COLOR_PRIMARY, COLOR_RED, S2, S16, SloganText,S14,smallTitle ,headingText,homeTitle, titleText,eventTitleText,ListingOnOffBtn,InputTextSize,ListingTitle, headerText,} from './common';
 import { width, height, totalSize } from 'react-native-dimension';
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from '../source/helpers/Responsive'
 const window = Dimensions.get('window');
 const styles = StyleSheet.create({
   container: {
@@ -65,7 +66,7 @@ const styles = StyleSheet.create({
   topViewCon: {
     alignSelf: 'center',
     overflow: 'hidden',
-    height: height(15),
+    height: height(12),
     // backgroundColor:'red',
     width: width(100),
     overflow: 'hidden',
@@ -143,21 +144,24 @@ const styles = StyleSheet.create({
     // marginTop: Platform.OS === 'ios' ? 150 : 140,
   },
   flatlistChild: {
-    height: width(16),
-    width: width(16),
+    height: wp(14),
+    width: wp(34),
     // zIndex:-1,
-
+    flexDirection:'row',
     // marginVertical: 15,
     marginBottom:5,
     alignSelf: 'center',
     alignItems: 'center',
-    justifyContent: 'center',
+    // justifyContent: 'center',
     backgroundColor: 'white',
-    borderRadius: width(8),
+    marginRight:wp('3'),
+    marginLeft:wp(0.1),
+    borderRadius: wp(2),
     ...Platform.select({
-      ios: { shadowColor: 'gray', shadowOpacity: 0.2, shadowRadius: 2 },
-      android: { elevation: 2, }
+      ios: { shadowColor: 'gray', shadowOpacity: 0.1, shadowRadius: 2 },
+      android: { elevation: 1, }
     }),
+   
   },
   cateCon: {
     height: height(30),
@@ -185,11 +189,27 @@ const styles = StyleSheet.create({
     width: width(16),
     // marginLeft:5,
     fontSize: smallTitle, //totalSize(S15)
-    alignSelf: 'center',
-    textAlign: 'center',
+    position:'absolute',top:wp('2'),
+    textAlign: 'left',
+    left:wp('12'),
     color: COLOR_SECONDARY,
     // backgroundColor:'red',
-    marginVertical: 5
+    marginVertical: 5,
+   
+  },
+  childTxt2: {
+    // fontFamily: FONT_NORMAL,
+    width: width(16),
+    // marginLeft:5,
+    fontSize: wp('2.5'), //totalSize(S15)
+    position:'absolute',top:wp('6'),
+    textAlign: 'left',
+    left:wp('12'),
+    // backgroundColor:'red',
+    color: COLOR_SECONDARY,
+    // backgroundColor:'red',
+    marginVertical: 5,
+   
   },
   recList: {
     fontWeight: 'bold',
@@ -211,7 +231,7 @@ const styles = StyleSheet.create({
       android: { elevation: 2, }
     }),
     height: 104,
-    width: width(90),
+    width: wp(90),
     flexDirection: 'row',
     backgroundColor: '#ffffff',
     borderRadius: 15,
@@ -224,6 +244,21 @@ const styles = StyleSheet.create({
     alignSelf:"center"
    
     
+  },
+  featuredFLItemBox: {
+    alignSelf:'center',
+    marginHorizontal: 5,
+    ...Platform.select({
+      ios: { shadowColor: 'gray', shadowOpacity: 0.2, shadowRadius: 2 },
+      android: { elevation: 2, }
+    }),
+    width: wp(30),
+    // marginRight:wp('5'),
+    // flexDirection: 'row',
+    backgroundColor: '#ffffff',
+    borderRadius: wp('2'),
+    marginVertical: 5,
+    marginBottom: 6
   },
   closedBtn: {
     // height:height(3),
@@ -246,12 +281,32 @@ const styles = StyleSheet.create({
     width: width(55),
     justifyContent: 'center'
   },
+  txtViewConBox: {
+    height:wp('26'),
+    borderBottomLeftRadius:wp('2'),
+    borderBottomRightRadius:wp('2'),
+
+    backgroundColor:'#fff',
+    width: width(45),
+    justifyContent: 'center'
+  },
   txtViewHeading: {
     textAlign: 'left',
     fontWeight: 'bold',
     // backgroundColor:'red',
     // height: height(6),
     width: width(55),
+    marginTop: 3,
+    marginBottom: 1,
+    marginLeft: 10,
+    fontSize: ListingTitle, //totalSize(S16)
+    color: 'black',
+  }, txtViewHeadingBox: {
+    textAlign: 'left',
+    fontWeight: 'bold',
+    // backgroundColor:'red',
+    // height: height(6),
+    width: width(40),
     marginTop: 3,
     marginBottom: 1,
     marginLeft: 10,
