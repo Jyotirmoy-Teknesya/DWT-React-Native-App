@@ -168,82 +168,37 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from '../../helpe
               />
             }>
             <View style={styles.topViewCon}>
-              {/* <View style={styles.InnerRadius}> */}
-              {/* <View style={styles.imageCon}> */}
-              {/* <ImageBackground indicator={null} source={{ uri: home.search_section.image }} style={{ flex: 1, resizeMode: 'contain' }}>
-                    <View style={{ height: height(40), alignItems: 'center', backgroundColor: 'rgba(0,0,0,0.7)' }}>
-                      <View style={styles.findTxtCon}>
-                        <Text style={styles.firTxt}>{home.search_section.main_title}</Text>
-                      </View>
-                      <Text style={styles.secTxt}>{home.search_section.sub_title}</Text>
-                      <View style={styles.searchCon}>
-                        <TextInput
-                          onChangeText={(value) => this.setState({ email: value })}
-                          underlineColorAndroid='transparent'
-                          placeholder={home.search_section.placeholder}
-                          // placeholderTextColor='black'
-                          underlineColorAndroid='transparent'
-                          autoCorrect={false}
-                          onFocus={() => this.navigateToScreen('SearchingScreen', 'search')}
-                          style={styles.txtInput}
-                        />
-                        <Icon
-                          size={30}
-                          name='search'
-                          type='evilicon'
-                          color='black'
-                          containerStyle={{ marginLeft: 0, marginVertical: 10 }}
-                          // containerStyle={styles.searchIcon}
-                          onPress={() => this.navigateToScreen('SearchingScreen', 'search')}
-                        /> */}
-              {/* <Image
-                          source={require('../../images/search_black.png')}
-                          style={styles.searchIcon}
-                          onPress={() => this.navigateToScreen('SearchingScreen', 'search')}
-                        /> */}
-              {/* </View>
-                    </View>
-                  </ImageBackground> */}
-              {/* </View> */}
-              {/* </View> */}
-            </View>
             {
               home.categories_enabled ?
-                <View style={{ flex: 1, width: width(100), backgroundColor: 'transparent', alignItems: 'center', position: 'absolute', marginVertical: 1 }}>
-                  <View style={styles.flatlistCon}>
+                <View style={{ flex: 1, width: width(100), backgroundColor: 'transparent', alignItems: 'center', position: 'absolute',  }}>
+                  <View style={[styles.flatlistCon,{backgroundColor:'black',paddingLeft:wp('2')}]}>
                     <FlatList
                       data={home.categories}
+                      horizontal
                       renderItem={({ item, key }) =>
                         <View style={{
-                          marginTop: 15,
-                          marginBottom: 8,
-                          marginRight: 15,
+                          height:wp('10'),
+                          marginRight:wp('8'),
+                          // marginBottom: 8,
                           alignContent: 'center',
-                          alignItems: 'center'
+                          alignItems: 'center',
+                          // backgroundColor:'red'
                           // marginHorizontal: 10,
                         }}>
 
-                          <TouchableOpacity key={key} style={styles.flatlistChild}
+                          <TouchableOpacity key={key} style={[styles.flatlistChild]}
                             onPress={() => {
                               store.CATEGORY = item,
                                 store.moveToSearch = true,
                                 this.navigateToScreen('SearchingScreen', data.menu.adv_search)
                             }}
                           >
-                            <Animatable.View
-                              duration={2000}
-                              animation="zoomIn"
-                              iterationCount={1}
-                              direction="alternate">
-                              <Image style={{ height: height(5), width: width(10), resizeMode: 'contain' }} source={{ uri: item.img }} />
-                            </Animatable.View>
-                            <View style={{ height: width(4), width: width(4), alignContent: 'center', alignItems: 'center', justifyContent: 'center', backgroundColor: 'red', position: 'absolute', borderRadius: width(2), top: 0, right: 0 }}>
-                              <Text style={{ color: '#fff', fontSize: width(1.6), fontWeight: 'bold' }}>01</Text>
-                            </View>
+                          <Text style={[styles.childTxt, { fontWeight: '500' ,color:'#D8D8D8'}]}>{item.name}</Text>
+                           
+                          
 
                           </TouchableOpacity>
 
-                          <Text style={[styles.childTxt, { fontWeight: '500' ,width:wp('18')}]}>{item.name}</Text>
 
                         </View>
                       }
@@ -257,6 +212,8 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from '../../helpe
                 :
                 null
             }
+            </View>
+            
             {
               home.listings_enabled ?
                 <View style={{ width: width(90), flexDirection: 'row', alignSelf: 'center', alignItems: 'center', marginTop: Platform.OS === 'ios' ? 15 : 15, marginBottom: 5 }}>

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Platform, StatusBar, Text, TextInput, View, TouchableOpacity, Image, Alert } from 'react-native';
 import { width, height, totalSize } from 'react-native-dimension';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
-import {widthPercentageToDP as wp, heightPercentageToDP as hp} from '../../source/helpers/Responsive'
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from '../../source/helpers/Responsive'
 //Authentication
 import Splash from '../components/SplashScreen/Splash';
 import MainScreen from '../components/MainScreen/MainScreen';
@@ -62,35 +62,30 @@ const RootStack = createStackNavigator(
             <TouchableOpacity style={styles.drawerBtnCon} onPress={() => {
               navigation.toggleDrawer()
             }}>
+
               <Image source={require('../images/menu_newhome.png')} style={styles.drawerBtn} />
             </TouchableOpacity>
-            <View style={styles.headerTxtCon}>
-              {/* <View style={{ backgroundColor: '#fff', height: '90%', width: '90%', borderRadius: 10, alignItems: 'center', alignContent: 'center' }}> */}
-                <TextInput
-                  onChangeText={(value) => this.setState({ email: value })}
-                  underlineColorAndroid='transparent'
-                  placeholder={"What are you looking for..."}
-                  // placeholderTextColor='black'
-                  underlineColorAndroid='transparent'
-                  autoCorrect={false}
-                  // onFocus={() => this.navigateToScreen('SearchingScreen', 'search')}
-                  style={{ height: wp(10), paddingLeft: 15, paddingTop: 10, backgroundColor: '#fff', width: '100%', borderRadius: 8, fontSize: totalSize(1.5), }}
-                />
-
-              </View>
-              <View style={{backgroundColor:'red',alignContent:'center',alignItems:'center',justifyContent:'center',marginLeft:5,height:wp('10'),width:wp('10'),borderRadius:wp('5')}}>
+            <View style={[styles.headerTxtCon, { alignItems: 'center', alignContent: 'center', justifyContent: 'center' }]}>
+              <Text style={{fontSize:wp('4.5'),fontWeight:'bold',color:'#fff',marginLeft:wp(-10)}}>Down Town</Text>
+              <View style={{ backgroundColor: 'transparent', alignContent: 'center', alignItems: 'center', justifyContent: 'center', marginLeft: 5, height: wp('10'), width: wp('10'), borderRadius: wp('5'), position: 'absolute', right: wp('8.5') }}>
                 <Icon
-                  size={wp(7)}
+                  size={wp(9)}
                   name='search'
                   type='evilicon'
-                  color='#fff'
+                  color='white'
                   containerStyle={{ marginLeft: 0, marginVertical: 3 }}
                 // containerStyle={styles.searchIcon}
                 // onPress={() => this.navigateToScreen('SearchingScreen', 'search')}
                 />
               </View>
 
-              {/* <Text style={styles.headerTxt}>{navigation.getParam('otherParam', store.settings.data.menu.home)}</Text> */}
+              <Image
+                source={require('../images/map_pin_icon_white.png')}
+                resizeMode="contain"
+                style={{ height: wp(6), width: wp(6), position: 'absolute', right: wp('1'), }}
+              />
+            </View>
+            {/* <Text style={styles.headerTxt}>{navigation.getParam('otherParam', store.settings.data.menu.home)}</Text> */}
             {/* </View> */}
             <View style={{ flex: 1 }}></View>
             {/* <Image source={require('../images/search_white.png')} style={styles.headerSearch} />

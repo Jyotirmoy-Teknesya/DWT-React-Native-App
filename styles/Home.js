@@ -136,28 +136,28 @@ const styles = StyleSheet.create({
   flatlistCon: {
     // height: height(43),
     flex: 1,
-    width: width(92),
+    width: '100%',
     alignSelf: 'center',
     // position: 'absolute',
     alignItems: 'flex-end',
     // marginTop: Platform.OS === 'ios' ? 150 : 140,
   },
   flatlistChild: {
-    height: width(16),
-    width: width(16),
+    // height: width(6),
+    // width: width(10),
     // zIndex:-1,
 
     // marginVertical: 15,
-    marginBottom:5,
-    alignSelf: 'center',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'white',
-    borderRadius: width(8),
-    ...Platform.select({
-      ios: { shadowColor: 'gray', shadowOpacity: 0.2, shadowRadius: 2 },
-      android: { elevation: 2, }
-    }),
+    // marginBottom:5,
+    // alignSelf: 'center',
+    // alignItems: 'center',
+    // justifyContent: 'center',
+    // backgroundColor: 'white',
+    // borderRadius: width(8),
+    // ...Platform.select({
+    //   ios: { shadowColor: 'gray', shadowOpacity: 0.2, shadowRadius: 2 },
+    //   android: { elevation: 2, }
+    // }),
   },
   cateCon: {
     height: height(30),
@@ -182,7 +182,7 @@ const styles = StyleSheet.create({
   },
   childTxt: {
     // fontFamily: FONT_NORMAL,
-    width: width(16),
+    // width: width(16),
     // marginLeft:5,
     fontSize: smallTitle, //totalSize(S15)
     alignSelf: 'center',

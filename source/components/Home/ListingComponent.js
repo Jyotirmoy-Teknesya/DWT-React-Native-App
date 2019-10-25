@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react';
 import { Text, View, ImageBackground, TouchableOpacity } from 'react-native';
 // import ProgressBar from 'react-native-progress/Bar';
@@ -9,6 +10,7 @@ import { COLOR_GRAY, COLOR_ORANGE } from '../../../styles/common';
 import { withNavigation } from 'react-navigation';
 import styles from '../../../styles/Home';
 import store from '../../Stores/orderStore';
+import { widthPercentageToDP as wp } from '../../helpers/Responsive';
 class ListingComponent extends Component<Props> {
     onStarRatingPress(rating) {
         this.setState({
@@ -25,7 +27,9 @@ class ListingComponent extends Component<Props> {
                 <View style={{
                     height: 99,
                     width: width(26),
-                    borderRadius: 15,
+                    borderTopRightRadius: wp('5'),
+                    borderBottomLeftRadius:wp('5'),
+
                     marginLeft: 1,
                     backgroundColor: 'red',
                     alignSelf: "center",
@@ -57,14 +61,13 @@ class ListingComponent extends Component<Props> {
                         <Text style={styles.txtViewHeading}>{item.listing_title}</Text>
                     </View>
 
-                    <View style={{ width: width(50),flexDirection:'row',marginTop:2 }}>
+                    {/* <View style={{ width: width(50),flexDirection:'row',marginTop:2 }}>
                         <Text style={styles.subHeadingTxt}>2 Reviews  |</Text>
                         <Text style={styles.subHeadingTxt}>{item.category_name}    |</Text>
                         <Text style={styles.subHeadingTxt}>{item.business_hours_status}</Text>
-
-                    </View>
+                    </View> */}
                     
-                    {/* <View style={styles.ratingCon}>
+                    <View style={[styles.ratingCon]}>
                         <View style={styles.gradingCon}>
                             <StarRating
                                 disabled={false}
@@ -75,24 +78,27 @@ class ListingComponent extends Component<Props> {
                                 rating={item.rating_stars === "" ? 0 : item.rating_stars}
                             />
                         </View>
-                        <Icon
+                        {/* <Icon
                             size={20}
                             name='eye'
                             type='evilicon'
                             color='#8a8a8a'
                             containerStyle={{ marginLeft: 0, marginVertical: 3 }}
                         />
-                        <Text style={styles.ratingTxt}>{item.total_views}</Text>
-                    </View> */}
-                    <View style={{ marginTop: 5, width: width(45), marginHorizontal: 6, flexDirection: 'row', alignItems: 'center' }}>
+                        <Text style={styles.ratingTxt}>{item.total_views}</Text> */}
+                    </View>
+                    <View style={{ marginTop: wp('2'), width: '100%', borderTopWidth:wp(0.1),borderTopColor:'#D8D8D8', flexDirection: 'row', alignItems: 'center',alignContent:'center' }}>
                         <Icon
                             size={18}
                             name='location'
                             type='evilicon'
                             color='red'
-                            containerStyle={{ marginHorizontal: 0, marginVertical: 0 }}
+                            containerStyle={{ marginHorizontal: 0, marginVertical: 0,marginTop:wp('2'),marginLeft:wp('2') }}
                         />
-                        <Text style={{ fontSize: 10, color: '#8a8a8a',marginLeft: 2, }}>Arkansas, United States</Text>
+                        <Text style={{ fontSize: 10, color: '#8a8a8a',marginLeft: 2,marginTop:wp('2') }}>Arkansas, United States</Text>
+
+                        <Text style={{ fontSize: 10, color: '#8a8a8a',marginLeft: 2,marginTop:wp('2'),position: 'absolute',right:wp('2'),top:wp('0') }}>{item.business_hours_status}</Text>
+
                     </View>
 
                 </View>
@@ -101,3 +107,4 @@ class ListingComponent extends Component<Props> {
     }
 }
 export default withNavigation(ListingComponent)
+

@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
   },
   headerTxtCon: {
     height: wp(10),
-    width: wp(78),
+    width: wp(88),
     flexDirection: 'row',
     // backgroundColor:'green',
     alignSelf: 'center',
