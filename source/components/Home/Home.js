@@ -189,6 +189,61 @@ import Swipeable from './Swipeable'
                 onRefresh={this.homeData}
               />
             }>
+            
+
+            <View style={[styles.topViewCon,{height:wp('15')}]}>
+              {
+                home.categories_enabled ?
+                  <View style={{ flex: 1, width: width(100), backgroundColor: 'transparent', alignItems: 'center', position: 'absolute', marginVertical: 1 }}>
+                    <View style={styles.flatlistCon}>
+                      <FlatList
+                        data={home.categories}
+                        renderItem={({ item, key }) =>
+                          <View style={{
+                            marginBottom: 8,
+                            marginRight: 15,
+                            alignContent: 'center',
+                            alignItems: 'center'
+                            // marginHorizontal: 10,
+                          }}>
+
+                            <TouchableOpacity key={key} style={[styles.flatlistChild,{backgroundColor:'#fff',flexDirection:'row',width:wp('34'),height:wp('10'),borderRadius:wp('5')}]}
+                              onPress={() => {
+                                store.CATEGORY = item,
+                                  store.moveToSearch = true,
+                                  this.navigateToScreen('SearchingScreen', data.menu.adv_search)
+                              }}
+                            >
+                              <Animatable.View
+                                duration={2000}
+                                animation="zoomIn"
+                                iterationCount={1}
+                                direction="alternate">
+                                <Image style={{ height: height(3), width: width(6), resizeMode: 'contain' }} source={{ uri: item.img }} />
+                              </Animatable.View>
+                              {/* <View style={{ height: wp(4), width: wp(4), alignContent: 'center', alignItems: 'center', justifyContent: 'center', backgroundColor: 'red', position: 'absolute', borderRadius: wp(2), top: 0, right: 0 }}>
+                                <Text style={{ color: '#fff', fontSize: width(1.6), fontWeight: 'bold' }}>01</Text>
+                              </View> */}
+                            <Text style={[styles.childTxt, { fontWeight: '500', width: wp('18') }]}>{item.name}</Text>
+
+                            </TouchableOpacity>
+
+
+                          </View>
+                        }
+                        horizontal={true}
+                        showsHorizontalScrollIndicator={false}
+                      // keyExtractor={item => item.email}
+                      />
+                    </View>
+                    <View style={{ flex: 1.3, width: width(100) }}></View>
+                  </View>
+                  :
+                  null
+              }
+            </View>
+            
+            
             {
               home.featured_enabled && home.featured_listings.has_featured_listings ?
               <Swipeable cards={home.featured_listings.list} />  
@@ -249,57 +304,95 @@ import Swipeable from './Swipeable'
                 :
                 null
             }
-            <View style={[styles.topViewCon,{height:wp('25')}]}>
-              {
-                home.categories_enabled ?
-                  <View style={{ flex: 1, width: width(100), backgroundColor: 'transparent', alignItems: 'center', position: 'absolute', marginVertical: 1 }}>
-                    <View style={styles.flatlistCon}>
-                      <FlatList
-                        data={home.categories}
-                        renderItem={({ item, key }) =>
-                          <View style={{
-                            marginBottom: 8,
-                            marginRight: 15,
-                            alignContent: 'center',
-                            alignItems: 'center'
-                            // marginHorizontal: 10,
-                          }}>
+             {
+              home.location_enabled ?
+                <View style={{ marginHorizontal: 20 }}>
 
-                            <TouchableOpacity key={key} style={[styles.flatlistChild,{backgroundColor:'#f9f9f9'}]}
+                  <View style={{ width: width(90), flexDirection: 'row', alignContent: 'center', alignItems: 'center' }}>
+                    <Text style={{ fontSize: 20, fontFamily: 'Quicksand-Bold', color: COLOR_SECONDARY, marginVertical: 15 }}>Best Location</Text>
+
+                    <Text style={{ marginVertical: 20, fontSize: 10, color: 'red', fontWeight: 'bold', position: 'absolute', right: 0 }}>See All</Text>
+
+                  </View>
+
+                  <View style={{ flexWrap: 'wrap', flexDirection: 'row', alignItems: 'center' }}>
+
+                    <ScrollView
+                      horizontal={true}
+                      showsHorizontalScrollIndicator={false}
+                      style={{ marginHorizontal: 0 }}>
+                      {
+                        home.location_list.map((item, key) => {
+                          return (
+                            <TouchableOpacity style={{ height: height(16), width: width(43), marginRight: width(3), marginVertical: 5, alignItems: 'center', }}
                               onPress={() => {
-                                store.CATEGORY = item,
-                                  store.moveToSearch = true,
+                                store.LOCATION = item,
+                                  store.moveToSearchLoc = true,
                                   this.navigateToScreen('SearchingScreen', data.menu.adv_search)
-                              }}
-                            >
-                              <Animatable.View
-                                duration={2000}
-                                animation="zoomIn"
-                                iterationCount={1}
-                                direction="alternate">
-                                <Image style={{ height: height(5), width: width(10), resizeMode: 'contain' }} source={{ uri: item.img }} />
-                              </Animatable.View>
-                              <View style={{ height: wp(4), width: wp(4), alignContent: 'center', alignItems: 'center', justifyContent: 'center', backgroundColor: 'red', position: 'absolute', borderRadius: wp(2), top: 0, right: 0 }}>
-                                <Text style={{ color: '#fff', fontSize: width(1.6), fontWeight: 'bold' }}>01</Text>
+                              }}>
+                              {/* <View style={{ height: 10 }} /> */}
+                              <View style={{ width: width(43.5), paddingHorizontal: wp('5'), paddingVertical: wp('3'), backgroundColor: '#fff', borderRadius: wp(3),backgroundColor:"#fff" }}>
+                                <Avatar
+                                  size="medium"
+                                  rounded
+                                  source={{ uri: item.location_image }}
+                                  containerStyle={{ resizeMode: 'contain', elevation: 2, shadowOpacity: 0.2 }}
+                                  // onPress={() => this.props.navigation.push('PublicProfileTab', { profiler_id: item.user_id, user_name: item.user_name })} 
+                                  activeOpacity={1}
+                                />
+                                <View style={{ flexDirection: "row" }}>
+                                  <Text style={{ fontSize: totalSize(1.5), fontWeight: 'bold', marginLeft: 5, color: COLOR_SECONDARY, marginTop: 8 }}>{item.location_name}</Text>
+                                  <Image
+                                    source={require('../../images/right-arrow.png')}
+                                    resizeMode="contain"
+                                    style={{ height: 10, width: 10, position: 'absolute', right: 10, top: 12 }}
+                                  />
+                                </View>
+                                {/* <Text style={{ fontSize: totalSize(1.7), color: COLOR_SECONDARY, marginTop: 4 }}>{'View All'}</Text> */}
+                                {/* <Text style={{ fontSize: totalSize(1.7), color: COLOR_SECONDARY, marginTop: 4 }}>{item.location_ads}</Text> */}
                               </View>
 
                             </TouchableOpacity>
+                          )
+                        })
+                      }
+                    </ScrollView>
 
-                            <Text style={[styles.childTxt, { fontWeight: '500', width: wp('18') }]}>{item.name}</Text>
 
-                          </View>
-                        }
-                        horizontal={true}
-                        showsHorizontalScrollIndicator={false}
-                      // keyExtractor={item => item.email}
-                      />
-                    </View>
-                    <View style={{ flex: 1.3, width: width(100) }}></View>
+                    {/* {
+                      home.location_list.map((item, key) => {
+                        return (
+                          <TouchableOpacity style={{ height: height(16), width: width(43), marginRight: this.isOdd(key) ? width(3) : 0, marginVertical: 5, alignItems: 'center' }}
+                            onPress={() => {
+                              store.LOCATION = item,
+                                store.moveToSearchLoc = true,
+                                this.navigateToScreen('SearchingScreen', data.menu.adv_search)
+                            }}> */}
+                    {/* <View style={{ height: 30 }} />
+                            <View style={{ height: height(12), width: width(43.5), justifyContent: 'center', alignItems: 'center', backgroundColor: '#fff', borderRadius: 5, shadowOpacity: 0.2, elevation: 2 }}>
+                              <Text style={{ fontSize: totalSize(2), color: COLOR_SECONDARY, marginTop: 8 }}>{item.location_name}</Text>
+                              <Text style={{ fontSize: totalSize(1.7), color: COLOR_SECONDARY, marginTop: 4 }}>{'View All'}</Text> */}
+                    {/* <Text style={{ fontSize: totalSize(1.7), color: COLOR_SECONDARY, marginTop: 4 }}>{item.location_ads}</Text> */}
+                    {/* </View>
+                            <View style={{ height: height(10), width: width(22), position: 'absolute' }}> */}
+                    {/* <Avatar
+                                size="medium"
+                                rounded
+                                source={{ uri: item.location_image }}
+                                containerStyle={{ alignSelf: 'center', resizeMode: 'contain', marginHorizontal: 10, elevation: 2, shadowOpacity: 0.2 }} */}
+                    {/* // onPress={() => this.props.navigation.push('PublicProfileTab', { profiler_id: item.user_id, user_name: item.user_name })} */}
+                    {/* activeOpacity={1} */}
+                    {/* /> */}
+                    {/* </View> */}
+                    {/* </TouchableOpacity>
+                        )
+                      })
+                    } */}
                   </View>
-                  :
-                  null
-              }
-            </View>
+                </View>
+                :
+                null
+            }
 
             {
               home.listings_enabled ?
@@ -368,95 +461,7 @@ import Swipeable from './Swipeable'
                 :
                 null
                 */}
-            {
-              home.location_enabled ?
-                <View style={{ marginHorizontal: 20 }}>
-
-                  <View style={{ width: width(90), flexDirection: 'row', alignContent: 'center', alignItems: 'center' }}>
-                    <Text style={{ fontSize: 20, fontFamily: 'Quicksand-Bold', color: COLOR_SECONDARY, marginVertical: 15 }}>Best Location</Text>
-
-                    <Text style={{ marginVertical: 20, fontSize: 10, color: 'red', fontWeight: 'bold', position: 'absolute', right: 0 }}>See All</Text>
-
-                  </View>
-
-                  <View style={{ flexWrap: 'wrap', flexDirection: 'row', alignItems: 'center' }}>
-
-                    <ScrollView
-                      horizontal={true}
-                      showsHorizontalScrollIndicator={false}
-                      style={{ marginHorizontal: 0 }}>
-                      {
-                        home.location_list.map((item, key) => {
-                          return (
-                            <TouchableOpacity style={{ height: height(16), width: width(43), marginRight: width(3), marginVertical: 5, alignItems: 'center', }}
-                              onPress={() => {
-                                store.LOCATION = item,
-                                  store.moveToSearchLoc = true,
-                                  this.navigateToScreen('SearchingScreen', data.menu.adv_search)
-                              }}>
-                              {/* <View style={{ height: 10 }} /> */}
-                              <View style={{ width: width(43.5), paddingHorizontal: wp('5'), paddingVertical: wp('3'), backgroundColor: '#fff', borderRadius: wp(3),backgroundColor:"#f9f9f9" }}>
-                                <Avatar
-                                  size="medium"
-                                  rounded
-                                  source={{ uri: item.location_image }}
-                                  containerStyle={{ resizeMode: 'contain', elevation: 2, shadowOpacity: 0.2 }}
-                                  // onPress={() => this.props.navigation.push('PublicProfileTab', { profiler_id: item.user_id, user_name: item.user_name })} 
-                                  activeOpacity={1}
-                                />
-                                <View style={{ flexDirection: "row" }}>
-                                  <Text style={{ fontSize: totalSize(1.5), fontWeight: 'bold', marginLeft: 5, color: COLOR_SECONDARY, marginTop: 8 }}>{item.location_name}</Text>
-                                  <Image
-                                    source={require('../../images/right-arrow.png')}
-                                    resizeMode="contain"
-                                    style={{ height: 10, width: 10, position: 'absolute', right: 10, top: 12 }}
-                                  />
-                                </View>
-                                {/* <Text style={{ fontSize: totalSize(1.7), color: COLOR_SECONDARY, marginTop: 4 }}>{'View All'}</Text> */}
-                                {/* <Text style={{ fontSize: totalSize(1.7), color: COLOR_SECONDARY, marginTop: 4 }}>{item.location_ads}</Text> */}
-                              </View>
-
-                            </TouchableOpacity>
-                          )
-                        })
-                      }
-                    </ScrollView>
-
-
-                    {/* {
-                      home.location_list.map((item, key) => {
-                        return (
-                          <TouchableOpacity style={{ height: height(16), width: width(43), marginRight: this.isOdd(key) ? width(3) : 0, marginVertical: 5, alignItems: 'center' }}
-                            onPress={() => {
-                              store.LOCATION = item,
-                                store.moveToSearchLoc = true,
-                                this.navigateToScreen('SearchingScreen', data.menu.adv_search)
-                            }}> */}
-                    {/* <View style={{ height: 30 }} />
-                            <View style={{ height: height(12), width: width(43.5), justifyContent: 'center', alignItems: 'center', backgroundColor: '#fff', borderRadius: 5, shadowOpacity: 0.2, elevation: 2 }}>
-                              <Text style={{ fontSize: totalSize(2), color: COLOR_SECONDARY, marginTop: 8 }}>{item.location_name}</Text>
-                              <Text style={{ fontSize: totalSize(1.7), color: COLOR_SECONDARY, marginTop: 4 }}>{'View All'}</Text> */}
-                    {/* <Text style={{ fontSize: totalSize(1.7), color: COLOR_SECONDARY, marginTop: 4 }}>{item.location_ads}</Text> */}
-                    {/* </View>
-                            <View style={{ height: height(10), width: width(22), position: 'absolute' }}> */}
-                    {/* <Avatar
-                                size="medium"
-                                rounded
-                                source={{ uri: item.location_image }}
-                                containerStyle={{ alignSelf: 'center', resizeMode: 'contain', marginHorizontal: 10, elevation: 2, shadowOpacity: 0.2 }} */}
-                    {/* // onPress={() => this.props.navigation.push('PublicProfileTab', { profiler_id: item.user_id, user_name: item.user_name })} */}
-                    {/* activeOpacity={1} */}
-                    {/* /> */}
-                    {/* </View> */}
-                    {/* </TouchableOpacity>
-                        )
-                      })
-                    } */}
-                  </View>
-                </View>
-                :
-                null
-            }
+          
             {
               home.events_enabled ?
                 <View style={styles.cate_con}>

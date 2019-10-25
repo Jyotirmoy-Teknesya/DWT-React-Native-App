@@ -12,7 +12,7 @@ export default class Swipeable extends React.Component {
   };
 
   static HorizontalMargin = 10;
-  static VerticalMargin = 20;
+  static VerticalMargin = 10;
   static BoundaryPadding = 30;
   static BoundaryBounce = 0;
   static ContainerToCardWidthRatio = 1.35;

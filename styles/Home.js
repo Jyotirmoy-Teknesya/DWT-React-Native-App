@@ -1,6 +1,8 @@
 import { StyleSheet, Platform, Dimensions, I18nManager } from 'react-native';
 import { COLOR_SECONDARY, COLOR_ORANGE, COLOR_PRIMARY, COLOR_RED, S2, S16, SloganText,S14,smallTitle ,headingText,homeTitle, titleText,eventTitleText,ListingOnOffBtn,InputTextSize,ListingTitle, headerText,} from './common';
 import { width, height, totalSize } from 'react-native-dimension';
+import { watchPosition } from 'react-native-geolocation-service';
+import { widthPercentageToDP as wp} from '../source/helpers/Responsive';
 const window = Dimensions.get('window');
 const styles = StyleSheet.create({
   container: {
@@ -15,7 +17,7 @@ const styles = StyleSheet.create({
   },
   subCon: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#f9f9f9',
     alignItems: 'center',
   },
   overlyHeader: {
@@ -214,7 +216,8 @@ const styles = StyleSheet.create({
     width: width(90),
     flexDirection: 'row',
     backgroundColor: '#ffffff',
-    borderRadius: 15,
+    // borderRadius: 15,
+    borderBottomLeftRadius:wp('5'),
     marginVertical: 5,
     marginBottom: 6
   },
@@ -243,7 +246,7 @@ const styles = StyleSheet.create({
   },
   txtViewCon: {
     height: 98,
-    width: width(55),
+    width: wp(64),
     justifyContent: 'center'
   },
   txtViewHeading: {
