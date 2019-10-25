@@ -125,7 +125,7 @@ export default class Packages extends Component<Props> {
     });
 
   }
-  componentWillMount = async() => {
+   UNSAFE_componentWillMount = async() => {
 
  
   }

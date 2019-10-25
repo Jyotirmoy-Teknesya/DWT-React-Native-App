@@ -26,7 +26,7 @@ import styles from '../../../styles/Categories/CategoriesStyleSheet';
     }
   }
   static navigationOptions = { header: null };
-  componentWillMount() {
+   UNSAFE_componentWillMount() {
     let { orderStore } = Store;
     // calling homeData func
     this.getCategories()

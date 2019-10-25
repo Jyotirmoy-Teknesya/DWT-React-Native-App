@@ -34,7 +34,7 @@ import NetInfo from "@react-native-community/netinfo";
       Toast.show('Check your internet and try again', Toast.LONG);
     }
   }
-  componentWillMount=async()=>{
+   UNSAFE_componentWillMount=async()=>{
     if(NetInfo.isConnected){
        await this.splash(true)
     }

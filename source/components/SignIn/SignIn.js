@@ -30,7 +30,7 @@ export default class SignIn extends Component<Props> {
   static navigationOptions = {
     header: null
   };
-  componentWillMount = async () => {
+   UNSAFE_componentWillMount = async () => {
     GoogleSignin.configure({
       iosClientId: '191792720370-rc4ospf26req749phf3d4l4sfj74gmf4.apps.googleusercontent.com'
     })

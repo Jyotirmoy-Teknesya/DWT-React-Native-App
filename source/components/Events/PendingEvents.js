@@ -23,7 +23,7 @@ class PendingEvents extends Component<Props> {
   static navigationOptions = {
     header: null,
   };
-  componentWillMount = async () => {
+   UNSAFE_componentWillMount = async () => {
     let data = store.MY_EVENTS.data.my_events.pending_events;
     if (data.has_events) {
       data.events.forEach(item => {

@@ -55,7 +55,7 @@ const inputSize = totalSize(1.5);
     static navigationOptions = {
         header: null,
     };
-    componentWillMount = async () => {
+     UNSAFE_componentWillMount = async () => {
         let data = store.GET_LISTING.data.create_listing;
         if (data.gallery.has_gallery) {
             data.gallery.dropdown.forEach(item => {

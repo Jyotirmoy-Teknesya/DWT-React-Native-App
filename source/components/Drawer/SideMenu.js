@@ -24,7 +24,7 @@ import { ScrollView, Text, View, Image, TouchableOpacity, BackHandler, AsyncStor
     }
   }
   static navigationOptions = { header: null };
-  componentWillMount = async () => {
+   UNSAFE_componentWillMount = async () => {
     var userDetail = await LocalDB.getUserProfile();
     if (userDetail !== null) {
       store.login.loginResponse.data = userDetail;

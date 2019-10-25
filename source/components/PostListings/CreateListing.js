@@ -33,7 +33,7 @@ const inputSize = totalSize(1.5);
         header: null,
     };
 
-    componentWillMount = async () => {
+     UNSAFE_componentWillMount = async () => {
         let data = store.GET_LISTING.data.create_listing;
         if (data.category.dropdown.length > 0 && data.category.value !== "" ) {
             await this.getAmenities(data.category.value)

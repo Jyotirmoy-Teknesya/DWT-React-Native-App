@@ -61,7 +61,7 @@ class CreateEvent extends Component<Props> {
     const contentHtml = await this.richtext.getContentHtml();
     //alert(titleHtml + ' ' + contentHtml)
   }
-  componentWillMount = async () => {
+   UNSAFE_componentWillMount = async () => {
     let { params } = this.props.navigation.state;
     if (params.eventMode !== 'create') {
       let data = store.MY_EVENTS.data.create_event;

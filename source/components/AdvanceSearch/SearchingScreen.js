@@ -64,7 +64,7 @@ import ListingComponent from '../Home/ListingComponent';
         }
     }
     _sort = () => this.setState({ sorting: !this.state.sorting })
-    componentWillMount = async () => {
+     UNSAFE_componentWillMount = async () => {
         await this.getSearchList()
     }
     getSearchList = async () => {
