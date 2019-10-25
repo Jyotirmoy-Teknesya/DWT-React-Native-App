@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
   },
   subCon: {
     flex: 1,
-    backgroundColor: '#f9f9f9',
+    backgroundColor: '#fff',
     alignItems: 'center',
   },
   overlyHeader: {
