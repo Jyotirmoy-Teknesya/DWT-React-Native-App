@@ -237,8 +237,9 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.0.0'
     implementation 'androidx.core:core:1.0.0'
     implementation ("com.facebook.react:react-native:+")  // From node_modules
-   
-  if (enableHermes) {
+    implementation project(path: ":react-native-interactable")
+
+    if (enableHermes) {
         def hermesPath = "../../node_modules/hermes-engine/android/";
         debugImplementation files(hermesPath + "hermes-debug.aar")
         releaseImplementation files(hermesPath + "hermes-release.aar")
