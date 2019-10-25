@@ -1,10 +1,12 @@
 import { StyleSheet, Platform, Dimensions, I18nManager } from 'react-native';
 import { COLOR_SECONDARY, COLOR_ORANGE, COLOR_PRIMARY, COLOR_RED, S2, S16, SloganText,S14,smallTitle ,headingText,homeTitle, titleText,eventTitleText,ListingOnOffBtn,InputTextSize,ListingTitle, headerText,} from './common';
 import { width, height, totalSize } from 'react-native-dimension';
+import { widthPercentageToDP as wp } from '../source/helpers/Responsive';
 const window = Dimensions.get('window');
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    // width:widthPercentageToDP
   },
   IndicatorCon: {
     height: height(100),
@@ -26,6 +28,42 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     backgroundColor: 'rgba(0,0,0,0.3)',
     justifyContent: 'center'
+  },
+  featuredFLItemBox: {
+    alignSelf:'center',
+    marginHorizontal: 5,
+    ...Platform.select({
+      ios: { shadowColor: 'gray', shadowOpacity: 0.2, shadowRadius: 2 },
+      android: { elevation: 2, }
+    }),
+    width: wp(30),
+    // marginRight:wp('5'),
+    // flexDirection: 'row',
+    backgroundColor: '#ffffff',
+    borderRadius: wp('2'),
+    marginVertical: 5,
+    marginBottom: 6
+  },
+  txtViewConBox: {
+    height:wp('26'),
+    borderBottomLeftRadius:wp('2'),
+    borderBottomRightRadius:wp('2'),
+
+    backgroundColor:'#fff',
+    width: width(45),
+    justifyContent: 'center'
+  },
+  txtViewHeadingBox: {
+    textAlign: 'left',
+    fontWeight: 'bold',
+    // backgroundColor:'red',
+    // height: height(6),
+    width: width(40),
+    marginTop: 3,
+    marginBottom: 1,
+    marginLeft: 10,
+    fontSize: ListingTitle, //totalSize(S16)
+    color: 'black',
   },
   drawerBtnCon: {
     flex: 1,

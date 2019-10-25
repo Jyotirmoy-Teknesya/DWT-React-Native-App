@@ -43,18 +43,27 @@ import { WebView } from 'react-native-webview';
     static navigationOptions = {
         header: null,
     };
+    componentDidMount() {
+        let { orderStore } = Store;
+        console.log('here in video tab', orderStore.home.FEATURE_DETAIL.data.listing_detial.video.video_id)
+    }
     render() {
         let { orderStore } = Store;
         let data = orderStore.home.FEATURE_DETAIL.data.listing_detial;
         return (
             <View style={styles.container}>
                 <FeatureDetail callModel={this.setModalVisible} />
-                <WebView
-                    useWebKit={false}
-                    source={{ uri: 'https://www.youtube.com/embed/' + data.video.video_id + '?rel=0&autoplay=0&showinfo=0&controls=0' }}
-                    style={{ height: height(40), width: width(90), marginTop: 20 }}
-                    javaScriptEnabled={true}
-                />
+              
+                        <WebView
+                        useWebKit={false}
+                        // source={{ uri: 'https://www.youtube.com/watch?v=6CNIHuLHWX4&list=RDT8_vDn1wsYE&index=2' }}
+                        source={{ uri: 'https://www.youtube.com/embed/' + data.video.video_id + '?rel=0&autoplay=0&showinfo=0&controls=0' }}
+                        style={{ height: height(40), width: width(90), marginTop: 20 }}
+                        javaScriptEnabled={true}
+                        />
+                       
+                
+
                 <Modal
                     animationInTiming={500}
                     animationIn="slideInLeft"

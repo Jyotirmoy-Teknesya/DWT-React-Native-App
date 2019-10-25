@@ -30,6 +30,7 @@ import store from '../../Stores/orderStore';
 import styles from '../../../styles/Home';
 import ApiController from '../../ApiController/ApiController';
 import ListingComponent from './ListingComponent';
+import ListingComponentBox from './ListingComponentBox';
 import EventComponent from './EventComponent';
 import { COLOR_PRIMARY, COLOR_SECONDARY } from '../../../styles/common';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from '../../helpers/Responsive'
@@ -167,7 +168,7 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from '../../helpe
                 onRefresh={this.homeData}
               />
             }>
-            <View style={styles.topViewCon}>
+            {/* <View style={styles.topViewCon}>
               {/* <View style={styles.InnerRadius}> */}
               {/* <View style={styles.imageCon}> */}
               {/* <ImageBackground indicator={null} source={{ uri: home.search_section.image }} style={{ flex: 1, resizeMode: 'contain' }}>
@@ -206,8 +207,8 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from '../../helpe
                   </ImageBackground> */}
               {/* </View> */}
               {/* </View> */}
-            </View>
-            {
+            {/* </View>  */}
+            {/* {
               home.categories_enabled ?
                 <View style={{ flex: 1, width: width(100), backgroundColor: 'transparent', alignItems: 'center', position: 'absolute', marginVertical: 1 }}>
                   <View style={styles.flatlistCon}>
@@ -256,7 +257,7 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from '../../helpe
                 </View>
                 :
                 null
-            }
+            } */}
             {
               home.listings_enabled ?
                 <View style={{ width: width(90), flexDirection: 'row', alignSelf: 'center', alignItems: 'center', marginTop: Platform.OS === 'ios' ? 15 : 15, marginBottom: 5 }}>
@@ -275,10 +276,11 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from '../../helpe
               home.listings_enabled ?
                 <View style={{ flex: 1, alignItems: 'center' }}>
                   <FlatList
+                  numColumns={2}
                     data={home.listings}
                     showsVerticalScrollIndicator={false}
                     renderItem={({ item, key }) =>
-                      <ListingComponent item={item} key={key} listStatus={false} />
+                      <ListingComponentBox item={item} key={key} listStatus={false} />
                     }
                     horizontal={false}
                     showsHorizontalScrollIndicator={false}
@@ -288,107 +290,8 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from '../../helpe
                 :
                 null
             }
-            {
-              home.featured_enabled && home.featured_listings.has_featured_listings ?
-                <View style={{ width: width(100), marginTop: 10, alignItems: 'center', justifyContent: 'center', backgroundColor: '#232323' }}>
-                  <View style={{ marginHorizontal: 20, width: width(90), flexDirection: 'row', alignContent: 'center', alignItems: 'center' }}>
-                    <Text style={{ marginVertical: 20, fontSize: 20, color: COLOR_PRIMARY, fontWeight: 'bold' }}>{home.featured_list_txt}</Text>
-
-                    <Text style={{ marginVertical: 20, fontSize: 10, color: COLOR_PRIMARY, fontWeight: 'bold', position: 'absolute', right: 0 }}>See All</Text>
-
-                  </View>
-
-
-                  <ScrollView
-                    horizontal={true}
-                    showsHorizontalScrollIndicator={false}
-                    style={{ marginHorizontal: 20 }}>
-                    {
-                      home.featured_listings.list.map((item, key) => {
-                        return (
-                          <TouchableOpacity style={{ width: width(55), backgroundColor: 'white', borderRadius: 5, marginRight: 10, marginBottom: 30 }} onPress={() => { store.LIST_ID = item.listing_id, this.props.navigation.navigate('FeatureDetailTabBar', { listId: item.listing_id, list_title: item.listing_title }) }}>
-                            <Image indicator={null} source={{ uri: item.image }} style={{ height: 220, width: width(55), borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }} />
-                            <View style={{ height: height(5), width: width(55), position: 'absolute', }}>
-                              <View style={{ position: 'absolute', right: 0 }}>
-                                <View style={styles.triangleCorner}></View>
-                                <Icon
-                                  size={13}
-                                  name='star'
-                                  type='entypo'
-                                  color='white'
-                                  containerStyle={{ marginRight: 0, marginLeft: 3, marginTop: 2, right: 1, position: 'absolute', resizeMode: 'contain' }}
-                                />
-                                {/* <Image source={require('../../images/starfill.png')} style={{ height: height(1.5), width: width(3), marginLeft: 4, marginTop: 4, position: 'absolute', resizeMode: 'contain' }} /> */}
-                              </View>
-                            </View>
-                            <View style={{ backgroundColor: '#fff', borderRadius: 5, width: '97%', alignSelf: 'center', position: 'absolute', bottom: 3 }}>
-                              <Text style={{ fontSize: 11, color: 'gray', marginHorizontal: 7, marginTop: 10, width: width(45) }}>{item.category_name}</Text>
-                              <Text style={{ fontSize: 13, fontWeight: 'bold', color: COLOR_SECONDARY, marginHorizontal: 7, marginTop: 3, marginBottom: 5 }}>{item.listing_title}</Text>
-                              <View style={{ marginBottom: 8, width: width(45), marginHorizontal: 5, flexDirection: 'row', alignItems: 'center' }}>
-                                <Icon
-                                  size={18}
-                                  name='location'
-                                  type='evilicon'
-                                  color='red'
-                                  containerStyle={{ marginHorizontal: 0, marginVertical: 0 }}
-                                />
-                                <Text style={{ fontSize: 10, color: '#8a8a8a' }}>Arkasana, United States</Text>
-                              </View>
-                            </View>
-
-                            {/* <View style={{ height: height(4), width: width(55), borderTopColor: '#cccccc', flexDirection: 'row', borderTopWidth: 0.3 }}>
-                              <View style={{ width: width(27.5), justifyContent: 'center' }}>
-                                <Text style={{ fontSize: totalSize(1.2), color: item.color_code, fontWeight: 'bold', marginHorizontal: 7 }}>{item.business_hours_status}</Text>
-                              </View>
-                              <View style={{ width: width(27.5), justifyContent: 'center', alignItems: 'flex-end' }}>
-                                <Icon
-                                  size={20}
-                                  name='heart'
-                                  type='evilicon'
-                                  color='red'
-                                  containerStyle={{ marginHorizontal: 10 }}
-                                  onPress={() => console.warn('Love')}
-                                />
-                              </View>
-                            </View> */}
-                          </TouchableOpacity>
-                        )
-                      })
-                    }
-                  </ScrollView>
-                </View>
-                :
-                null
-            }
-            {/*
-              home.location_enabled ?
-                <View style={{ marginHorizontal: 15 }}>
-                  <Text style={{ fontSize: 15, color: COLOR_SECONDARY, marginVertical: 15 }}>Locations</Text>
-                  {
-                    home.location_list.map((item, key) => {
-                      return (
-                        <TouchableOpacity style={{ height: height(11), width: width(90), marginRight: 5, borderRadius: 0, flexDirection: 'row', elevation: 2, shadowOpacity: 0.2, alignSelf: 'center', backgroundColor: '#fff', marginVertical: 5, alignItems: 'center' }}>
-                          <Avatar
-                            size="medium"
-                            rounded
-                            source={{ uri: item.location_image }}
-                            containerStyle={{ alignSelf: 'center', resizeMode: 'contain', marginHorizontal: 10, elevation: 2, shadowOpacity: 0.2 }}
-                            // onPress={() => this.props.navigation.push('PublicProfileTab', { profiler_id: item.user_id, user_name: item.user_name })}
-                            activeOpacity={1}
-                          />
-                          <View style={{ height: height(10), width: width(53), marginHorizontal: 5, justifyContent: 'center', alignItems: 'flex-start' }}>
-                            <Text style={{ fontSize: totalSize(2), color: COLOR_SECONDARY }}>{item.location_name}</Text>
-                            <Text style={{ fontSize: totalSize(1.7), color: COLOR_SECONDARY, marginTop: 4 }}>{item.location_ads}</Text>
-                          </View>
-                          <Icon size={27} color='black' name='chevrons-right' type='feather' containerStyle={{ marginHorizontal: 10 }} />
-                        </TouchableOpacity>
-                      )
-                    })
-                  }
-                </View>
-                :
-                null
-                */}
+         
+           
             {
               home.location_enabled ?
                 <View style={{ marginHorizontal: 20 }}>
