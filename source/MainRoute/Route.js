@@ -74,7 +74,7 @@ const RootStack = createStackNavigator(
                   underlineColorAndroid='transparent'
                   autoCorrect={false}
                   // onFocus={() => this.navigateToScreen('SearchingScreen', 'search')}
-                  style={{ height: wp(10), paddingLeft: 15, paddingTop: 10, backgroundColor: '#fff', width: '100%', borderRadius: 8, fontSize: totalSize(1.5), ...Platform.select({
+                  style={{ height: wp(10), paddingLeft: 15, paddingVertical: wp('2.5'), backgroundColor: '#fff', width: '100%', borderRadius: 8, fontSize: totalSize(1.5), ...Platform.select({
                     ios: { shadowColor: 'gray', shadowOpacity: 0.1, shadowRadius: 1 },
                     android: { elevation: 1, }
                   }), }}
