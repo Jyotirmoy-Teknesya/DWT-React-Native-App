@@ -29,6 +29,7 @@ class ListingComponent extends Component<Props> {
                     // borderRadius: 15,
                     borderTopRightRadius:15,
                     borderBottomLeftRadius:15,
+                    // borderBottomRightRadius:15,
                     marginLeft: 1,
                     backgroundColor: 'red',
                     alignSelf: "center",

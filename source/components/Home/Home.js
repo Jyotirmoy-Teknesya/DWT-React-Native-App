@@ -178,7 +178,7 @@ import { widthPercentageToDP as wp, heightPercentageToDP as hp } from '../../hel
                     placeholder="What are you looking for..."
                     placeholderTextColor="#fff"
 
-                    style={{ color: '#fff', paddingLeft: wp('2'), alignContent: 'center', alignItems: 'center', fontSize: wp('3') }}
+                    style={{ color: '#fff', paddingLeft: wp('2'),paddingVertical:wp('2.8'), justifyContent:'center',alignContent: 'center', alignItems: 'center', fontSize: wp('3') }}
                   />
                 </View>
                 <View style={{backgroundColor:'red',marginLeft:wp('2'),borderRadius:wp('1.5'),paddingHorizontal:wp('2.5'),alignContent:'center',alignItems:'center',justifyContent:'center'}}>
@@ -201,7 +201,7 @@ import { widthPercentageToDP as wp, heightPercentageToDP as hp } from '../../hel
                 <View style={{ marginHorizontal: 20 }}>
 
                   <View style={{ width: width(90), flexDirection: 'row', alignContent: 'center', alignItems: 'center' }}>
-                    <Text style={{ fontSize: 20, fontFamily: 'Quicksand-Bold', color: '#fff', marginVertical: 15 }}>Best Location</Text>
+                    <Text style={{ fontSize: 20,  color: '#fff', marginVertical: 15 }}>Best Location</Text>
 
                     <Text style={{ marginVertical: 20, fontSize: 10, color: '#fff', fontWeight: 'bold', position: 'absolute', right: 0 }}>See All</Text>
 
@@ -322,7 +322,7 @@ import { widthPercentageToDP as wp, heightPercentageToDP as hp } from '../../hel
                     <Text style={styles.recList}>{home.latest_events}</Text>
                   </View>
                   <TouchableOpacity style={[styles.readMoreBtnCon, { borderColor: store.settings.data.navbar_clr }]} onPress={() => this.navigateToScreen('PublicEvents', 'Home')}>
-                    <Text style={[styles.latestFeature, { fontSize: 10, fontWeight: 'bold', color: 'red' }]}>See All</Text>
+                    <Text style={[styles.latestFeature, { fontSize: 10, fontWeight: 'bold', color: '#fff' }]}>See All</Text>
                     {/* <Text style={[styles.latestFeature, { fontSize: 13 }]}>{home.view_all_events}</Text> */}
                   </TouchableOpacity>
                 </View>

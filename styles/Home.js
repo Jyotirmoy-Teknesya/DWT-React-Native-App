@@ -218,6 +218,7 @@ const styles = StyleSheet.create({
     // borderRadius: 15,
     borderTopRightRadius:15,
     borderBottomLeftRadius:15,
+    borderBottomRightRadius:15,
     marginVertical: 5,
     marginBottom: 6
   },
