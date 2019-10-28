@@ -1,6 +1,7 @@
 import { StyleSheet, Platform, Dimensions, I18nManager } from 'react-native';
 import { COLOR_SECONDARY, COLOR_ORANGE, COLOR_PRIMARY, COLOR_RED, S2, S16, SloganText,S14,smallTitle ,headingText,homeTitle, titleText,eventTitleText,ListingOnOffBtn,InputTextSize,ListingTitle, headerText,} from './common';
 import { width, height, totalSize } from 'react-native-dimension';
+import {widthPercentageToDP as wp} from '../source/helpers/Responsive'
 const window = Dimensions.get('window');
 const styles = StyleSheet.create({
   container: {
@@ -15,7 +16,7 @@ const styles = StyleSheet.create({
   },
   subCon: {
     flex: 1,
-    backgroundColor: '#f9f9f9',
+    backgroundColor: '#000',
     alignItems: 'center',
   },
   overlyHeader: {
@@ -65,7 +66,7 @@ const styles = StyleSheet.create({
   topViewCon: {
     alignSelf: 'center',
     overflow: 'hidden',
-    height: height(15),
+    height: height(20),marginTop:wp('5'),
     // backgroundColor:'red',
     width: width(100),
     overflow: 'hidden',
@@ -138,13 +139,14 @@ const styles = StyleSheet.create({
     flex: 1,
     width: width(92),
     alignSelf: 'center',
+    marginTop:wp('5'),
     // position: 'absolute',
     alignItems: 'flex-end',
     // marginTop: Platform.OS === 'ios' ? 150 : 140,
   },
   flatlistChild: {
-    height: width(16),
-    width: width(16),
+    height: width(22),
+    width: width(24),
     // zIndex:-1,
 
     // marginVertical: 15,
@@ -152,12 +154,9 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'white',
-    borderRadius: width(8),
-    ...Platform.select({
-      ios: { shadowColor: 'gray', shadowOpacity: 0.2, shadowRadius: 2 },
-      android: { elevation: 2, }
-    }),
+    backgroundColor: '#f9f9f9',
+    borderRadius: width(2),
+   
   },
   cateCon: {
     height: height(30),
@@ -206,11 +205,8 @@ const styles = StyleSheet.create({
   featuredFLItem: {
     alignSelf:'center',
     marginHorizontal: 5,
-    ...Platform.select({
-      ios: { shadowColor: 'gray', shadowOpacity: 0.2, shadowRadius: 2 },
-      android: { elevation: 2, }
-    }),
-    height: 104,
+  
+    height: 120,
     width: width(90),
     flexDirection: 'row',
     backgroundColor: '#ffffff',
@@ -243,8 +239,12 @@ const styles = StyleSheet.create({
   },
   txtViewCon: {
     height: 98,
-    width: width(55),
-    justifyContent: 'center'
+    width: width(64),
+    justifyContent: 'center',
+    backgroundColor:'#f9f9f9',
+    alignSelf:'center',
+    borderTopRightRadius:wp('4'),
+    borderBottomRightRadius:wp('4'),
   },
   txtViewHeading: {
     textAlign: 'left',
