@@ -32,7 +32,7 @@ import ApiController from '../../ApiController/ApiController';
 import ListingComponent from './ListingComponent';
 import EventComponent from './EventComponent';
 import { COLOR_PRIMARY, COLOR_SECONDARY } from '../../../styles/common';
-import {widthPercentageToDP as wp, heightPercentageToDP as hp} from '../../helpers/Responsive'
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from '../../helpers/Responsive'
 @observer export default class Home extends Component<Props> {
   constructor(props) {
     super(props);
@@ -167,236 +167,43 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from '../../helpe
                 onRefresh={this.homeData}
               />
             }>
-            <View style={styles.topViewCon}>
-              {/* <View style={styles.InnerRadius}> */}
-              {/* <View style={styles.imageCon}> */}
-              {/* <ImageBackground indicator={null} source={{ uri: home.search_section.image }} style={{ flex: 1, resizeMode: 'contain' }}>
-                    <View style={{ height: height(40), alignItems: 'center', backgroundColor: 'rgba(0,0,0,0.7)' }}>
-                      <View style={styles.findTxtCon}>
-                        <Text style={styles.firTxt}>{home.search_section.main_title}</Text>
-                      </View>
-                      <Text style={styles.secTxt}>{home.search_section.sub_title}</Text>
-                      <View style={styles.searchCon}>
-                        <TextInput
-                          onChangeText={(value) => this.setState({ email: value })}
-                          underlineColorAndroid='transparent'
-                          placeholder={home.search_section.placeholder}
-                          // placeholderTextColor='black'
-                          underlineColorAndroid='transparent'
-                          autoCorrect={false}
-                          onFocus={() => this.navigateToScreen('SearchingScreen', 'search')}
-                          style={styles.txtInput}
-                        />
-                        <Icon
-                          size={30}
-                          name='search'
-                          type='evilicon'
-                          color='black'
-                          containerStyle={{ marginLeft: 0, marginVertical: 10 }}
-                          // containerStyle={styles.searchIcon}
-                          onPress={() => this.navigateToScreen('SearchingScreen', 'search')}
-                        /> */}
-              {/* <Image
-                          source={require('../../images/search_black.png')}
-                          style={styles.searchIcon}
-                          onPress={() => this.navigateToScreen('SearchingScreen', 'search')}
-                        /> */}
-              {/* </View>
-                    </View>
-                  </ImageBackground> */}
-              {/* </View> */}
-              {/* </View> */}
-            </View>
-            {
-              home.categories_enabled ?
-                <View style={{ flex: 1, width: width(100), backgroundColor: 'transparent', alignItems: 'center', position: 'absolute', marginVertical: 1 }}>
-                  <View style={styles.flatlistCon}>
-                    <FlatList
-                      data={home.categories}
-                      renderItem={({ item, key }) =>
-                        <View style={{
-                          marginTop: 15,
-                          marginBottom: 8,
-                          marginRight: 15,
-                          alignContent: 'center',
-                          alignItems: 'center'
-                          // marginHorizontal: 10,
-                        }}>
+            <View style={{ marginLeft: wp('5') }}>
+              <Text style={{ color: '#fff', fontSize: wp('6'), fontWeight: 'bold' }}>Find the Best Place</Text>
+              <Text style={{ color: '#fff', fontSize: wp('3') }}>More than 17,000 business listed</Text>
 
-                          <TouchableOpacity key={key} style={styles.flatlistChild}
-                            onPress={() => {
-                              store.CATEGORY = item,
-                                store.moveToSearch = true,
-                                this.navigateToScreen('SearchingScreen', data.menu.adv_search)
-                            }}
-                          >
-                            <Animatable.View
-                              duration={2000}
-                              animation="zoomIn"
-                              iterationCount={1}
-                              direction="alternate">
-                              <Image style={{ height: height(5), width: width(10), resizeMode: 'contain' }} source={{ uri: item.img }} />
-                            </Animatable.View>
-                            <View style={{ height: width(4), width: width(4), alignContent: 'center', alignItems: 'center', justifyContent: 'center', backgroundColor: 'red', position: 'absolute', borderRadius: width(2), top: 0, right: 0 }}>
-                              <Text style={{ color: '#fff', fontSize: width(1.6), fontWeight: 'bold' }}>01</Text>
-                            </View>
 
-                          </TouchableOpacity>
+              <View style={{ flexDirection: 'row', marginTop: wp('4') }}>
+                <View style={{ height: wp('10'), width: wp('80'), backgroundColor: '#202224', borderRadius: wp('1.5') }}>
+                  <TextInput
+                    placeholder="What are you looking for..."
+                    placeholderTextColor="#fff"
 
-                          <Text style={[styles.childTxt, { fontWeight: '500' ,width:wp('18')}]}>{item.name}</Text>
-
-                        </View>
-                      }
-                      horizontal={true}
-                      showsHorizontalScrollIndicator={false}
-                    // keyExtractor={item => item.email}
-                    />
-                  </View>
-                  <View style={{ flex: 1.3, width: width(100) }}></View>
-                </View>
-                :
-                null
-            }
-            {
-              home.listings_enabled ?
-                <View style={{ width: width(90), flexDirection: 'row', alignSelf: 'center', alignItems: 'center', marginTop: Platform.OS === 'ios' ? 15 : 15, marginBottom: 5 }}>
-                  <View style={{ flex: 1, justifyContent: 'center', alignItems: 'flex-start' }}>
-                    <Text style={styles.recList}>{home.section_txt}</Text>
-                  </View>
-                  <TouchableOpacity style={[styles.readMoreBtnCon]} onPress={() => this.navigateToScreen('SearchingScreen', data.menu.adv_search)}>
-                    <Text style={[styles.latestFeature, { fontSize: 10,fontWeight:'bold', marginTop: 3, color: store.settings.data.navbar_clr }]}>See All</Text>
-                    {/* <Text style={[styles.latestFeature, { fontSize: 10,fontWeight:'bold', marginTop: 3, color: store.settings.data.navbar_clr }]}>{home.section_btn}</Text> */}
-                  </TouchableOpacity>
-                </View>
-                :
-                null
-            }
-            {
-              home.listings_enabled ?
-                <View style={{ flex: 1, alignItems: 'center' }}>
-                  <FlatList
-                    data={home.listings}
-                    showsVerticalScrollIndicator={false}
-                    renderItem={({ item, key }) =>
-                      <ListingComponent item={item} key={key} listStatus={false} />
-                    }
-                    horizontal={false}
-                    showsHorizontalScrollIndicator={false}
-                  // keyExtractor={item => item.email}
+                    style={{ color: '#fff', paddingLeft: wp('2'), alignContent: 'center', alignItems: 'center', fontSize: wp('3') }}
                   />
                 </View>
-                :
-                null
-            }
-            {
-              home.featured_enabled && home.featured_listings.has_featured_listings ?
-                <View style={{ width: width(100), marginTop: 10, alignItems: 'center', justifyContent: 'center', backgroundColor: '#232323' }}>
-                  <View style={{ marginHorizontal: 20, width: width(90), flexDirection: 'row', alignContent: 'center', alignItems: 'center' }}>
-                    <Text style={{ marginVertical: 20, fontSize: 20, color: COLOR_PRIMARY, fontWeight: 'bold' }}>{home.featured_list_txt}</Text>
-
-                    <Text style={{ marginVertical: 20, fontSize: 10, color: COLOR_PRIMARY, fontWeight: 'bold', position: 'absolute', right: 0 }}>See All</Text>
-
-                  </View>
-
-
-                  <ScrollView
-                    horizontal={true}
-                    showsHorizontalScrollIndicator={false}
-                    style={{ marginHorizontal: 20 }}>
-                    {
-                      home.featured_listings.list.map((item, key) => {
-                        return (
-                          <TouchableOpacity style={{ width: width(55), backgroundColor: 'white', borderRadius: 5, marginRight: 10, marginBottom: 30 }} onPress={() => { store.LIST_ID = item.listing_id, this.props.navigation.navigate('FeatureDetailTabBar', { listId: item.listing_id, list_title: item.listing_title }) }}>
-                            <Image indicator={null} source={{ uri: item.image }} style={{ height: 220, width: width(55), borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }} />
-                            <View style={{ height: height(5), width: width(55), position: 'absolute', }}>
-                              <View style={{ position: 'absolute', right: 0 }}>
-                                <View style={styles.triangleCorner}></View>
-                                <Icon
-                                  size={13}
-                                  name='star'
-                                  type='entypo'
-                                  color='white'
-                                  containerStyle={{ marginRight: 0, marginLeft: 3, marginTop: 2, right: 1, position: 'absolute', resizeMode: 'contain' }}
-                                />
-                                {/* <Image source={require('../../images/starfill.png')} style={{ height: height(1.5), width: width(3), marginLeft: 4, marginTop: 4, position: 'absolute', resizeMode: 'contain' }} /> */}
-                              </View>
-                            </View>
-                            <View style={{ backgroundColor: '#fff', borderRadius: 5, width: '97%', alignSelf: 'center', position: 'absolute', bottom: 3 }}>
-                              <Text style={{ fontSize: 11, color: 'gray', marginHorizontal: 7, marginTop: 10, width: width(45) }}>{item.category_name}</Text>
-                              <Text style={{ fontSize: 13, fontWeight: 'bold', color: COLOR_SECONDARY, marginHorizontal: 7, marginTop: 3, marginBottom: 5 }}>{item.listing_title}</Text>
-                              <View style={{ marginBottom: 8, width: width(45), marginHorizontal: 5, flexDirection: 'row', alignItems: 'center' }}>
-                                <Icon
-                                  size={18}
-                                  name='location'
-                                  type='evilicon'
-                                  color='red'
-                                  containerStyle={{ marginHorizontal: 0, marginVertical: 0 }}
-                                />
-                                <Text style={{ fontSize: 10, color: '#8a8a8a' }}>Arkasana, United States</Text>
-                              </View>
-                            </View>
-
-                            {/* <View style={{ height: height(4), width: width(55), borderTopColor: '#cccccc', flexDirection: 'row', borderTopWidth: 0.3 }}>
-                              <View style={{ width: width(27.5), justifyContent: 'center' }}>
-                                <Text style={{ fontSize: totalSize(1.2), color: item.color_code, fontWeight: 'bold', marginHorizontal: 7 }}>{item.business_hours_status}</Text>
-                              </View>
-                              <View style={{ width: width(27.5), justifyContent: 'center', alignItems: 'flex-end' }}>
-                                <Icon
-                                  size={20}
-                                  name='heart'
-                                  type='evilicon'
-                                  color='red'
-                                  containerStyle={{ marginHorizontal: 10 }}
-                                  onPress={() => console.warn('Love')}
-                                />
-                              </View>
-                            </View> */}
-                          </TouchableOpacity>
-                        )
-                      })
-                    }
-                  </ScrollView>
+                <View style={{backgroundColor:'red',marginLeft:wp('2'),borderRadius:wp('1.5'),paddingHorizontal:wp('2.5'),alignContent:'center',alignItems:'center',justifyContent:'center'}}>
+                  <Icon
+                    size={wp(5)}
+                    name='search'
+                    type='evilicon'
+                    color='#fff'
+                    containerStyle={{ marginLeft: 0,  }} />
                 </View>
-                :
-                null
-            }
-            {/*
-              home.location_enabled ?
-                <View style={{ marginHorizontal: 15 }}>
-                  <Text style={{ fontSize: 15, color: COLOR_SECONDARY, marginVertical: 15 }}>Locations</Text>
-                  {
-                    home.location_list.map((item, key) => {
-                      return (
-                        <TouchableOpacity style={{ height: height(11), width: width(90), marginRight: 5, borderRadius: 0, flexDirection: 'row', elevation: 2, shadowOpacity: 0.2, alignSelf: 'center', backgroundColor: '#fff', marginVertical: 5, alignItems: 'center' }}>
-                          <Avatar
-                            size="medium"
-                            rounded
-                            source={{ uri: item.location_image }}
-                            containerStyle={{ alignSelf: 'center', resizeMode: 'contain', marginHorizontal: 10, elevation: 2, shadowOpacity: 0.2 }}
-                            // onPress={() => this.props.navigation.push('PublicProfileTab', { profiler_id: item.user_id, user_name: item.user_name })}
-                            activeOpacity={1}
-                          />
-                          <View style={{ height: height(10), width: width(53), marginHorizontal: 5, justifyContent: 'center', alignItems: 'flex-start' }}>
-                            <Text style={{ fontSize: totalSize(2), color: COLOR_SECONDARY }}>{item.location_name}</Text>
-                            <Text style={{ fontSize: totalSize(1.7), color: COLOR_SECONDARY, marginTop: 4 }}>{item.location_ads}</Text>
-                          </View>
-                          <Icon size={27} color='black' name='chevrons-right' type='feather' containerStyle={{ marginHorizontal: 10 }} />
-                        </TouchableOpacity>
-                      )
-                    })
-                  }
-                </View>
-                :
-                null
-                */}
+              </View>
+
+
+            </View>
+
+
+
             {
               home.location_enabled ?
                 <View style={{ marginHorizontal: 20 }}>
 
                   <View style={{ width: width(90), flexDirection: 'row', alignContent: 'center', alignItems: 'center' }}>
-                    <Text style={{ fontSize: 20, fontFamily:'Quicksand-Bold', color: COLOR_SECONDARY, marginVertical: 15 }}>Best Location</Text>
+                    <Text style={{ fontSize: 20, fontFamily: 'Quicksand-Bold', color: '#fff', marginVertical: 15 }}>Best Location</Text>
 
-                    <Text style={{ marginVertical: 20, fontSize: 10, color: 'red', fontWeight: 'bold', position: 'absolute', right: 0 }}>See All</Text>
+                    <Text style={{ marginVertical: 20, fontSize: 10, color: '#fff', fontWeight: 'bold', position: 'absolute', right: 0 }}>See All</Text>
 
                   </View>
 
@@ -409,14 +216,14 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from '../../helpe
                       {
                         home.location_list.map((item, key) => {
                           return (
-                            <TouchableOpacity style={{ height: height(16), width: width(43), marginRight: width(3), marginVertical: 5, alignItems: 'center' }}
+                            <TouchableOpacity style={{ height: height(16), width: width(43), marginRight: width(3), marginVertical: 5, alignItems: 'center', }}
                               onPress={() => {
                                 store.LOCATION = item,
                                   store.moveToSearchLoc = true,
                                   this.navigateToScreen('SearchingScreen', data.menu.adv_search)
                               }}>
                               {/* <View style={{ height: 10 }} /> */}
-                              <View style={{  width: width(43.5), paddingHorizontal: wp('5'), paddingVertical: wp('3'), backgroundColor: '#fff', borderRadius: wp(3), }}>
+                              <View style={{ width: width(43.5), paddingHorizontal: wp('5'), paddingVertical: wp('3'), backgroundColor: '#fff', borderRadius: wp(3), backgroundColor: "#202224" }}>
                                 <Avatar
                                   size="medium"
                                   rounded
@@ -426,9 +233,9 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from '../../helpe
                                   activeOpacity={1}
                                 />
                                 <View style={{ flexDirection: "row" }}>
-                                  <Text style={{ fontSize: totalSize(1.5), fontWeight: 'bold', marginLeft: 5, color: COLOR_SECONDARY, marginTop: 8 }}>{item.location_name}</Text>
+                                  <Text style={{ fontSize: totalSize(1.5), fontWeight: 'bold', marginLeft: 5, color: '#fff', marginTop: 8 }}>{item.location_name}</Text>
                                   <Image
-                                    source={require('../../images/right-arrow.png')}
+                                    source={require('../../images/right-arrow-white.png')}
                                     resizeMode="contain"
                                     style={{ height: 10, width: 10, position: 'absolute', right: 10, top: 12 }}
                                   />
@@ -478,6 +285,36 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from '../../helpe
                 :
                 null
             }
+
+            {
+              home.listings_enabled ?
+                <View style={{ backgroundColor: '#2e3034', width: '100%', marginTop: wp('5'), alignSelf: 'center', alignItems: 'center', paddingBottom: wp('5') }}>
+                  <View style={{ flexDirection: 'row', paddingHorizontal: wp('5'), paddingTop: wp('5'), marginBottom: wp('2') }}>
+                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'flex-start' }}>
+                      <Text style={styles.recList}>{home.section_txt}</Text>
+                    </View>
+                    <TouchableOpacity style={[styles.readMoreBtnCon]} onPress={() => this.navigateToScreen('SearchingScreen', data.menu.adv_search)}>
+                      <Text style={[styles.latestFeature, { fontSize: 10, fontWeight: 'bold', marginTop: 3, color: '#fff' }]}>See All</Text>
+                      {/* <Text style={[styles.latestFeature, { fontSize: 10,fontWeight:'bold', marginTop: 3, color: store.settings.data.navbar_clr }]}>{home.section_btn}</Text> */}
+                    </TouchableOpacity>
+
+
+                  </View>
+
+                  <FlatList
+                    data={home.listings}
+                    showsVerticalScrollIndicator={false}
+                    renderItem={({ item, key }) =>
+                      <ListingComponent item={item} key={key} listStatus={false} />
+                    }
+                    horizontal={false}
+                    showsHorizontalScrollIndicator={false}
+                  // keyExtractor={item => item.email}
+                  />
+                </View>
+                :
+                null
+            }
             {
               home.events_enabled ?
                 <View style={styles.cate_con}>
@@ -485,7 +322,7 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from '../../helpe
                     <Text style={styles.recList}>{home.latest_events}</Text>
                   </View>
                   <TouchableOpacity style={[styles.readMoreBtnCon, { borderColor: store.settings.data.navbar_clr }]} onPress={() => this.navigateToScreen('PublicEvents', 'Home')}>
-                    <Text style={[styles.latestFeature, { fontSize: 10,fontWeight:'bold',color:'red' }]}>See All</Text>
+                    <Text style={[styles.latestFeature, { fontSize: 10, fontWeight: 'bold', color: 'red' }]}>See All</Text>
                     {/* <Text style={[styles.latestFeature, { fontSize: 13 }]}>{home.view_all_events}</Text> */}
                   </TouchableOpacity>
                 </View>

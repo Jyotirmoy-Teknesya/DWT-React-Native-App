@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
   },
   subCon: {
     flex: 1,
-    backgroundColor: '#f9f9f9',
+    backgroundColor: '#2e3034',
     alignItems: 'center',
   },
   overlyHeader: {
@@ -194,7 +194,7 @@ const styles = StyleSheet.create({
   recList: {
     fontWeight: 'bold',
     fontSize: SloganText, //totalSize(S2)
-    color: 'black',
+    color: '#fff',
     // textDecorationLine:'underline',
   },
   latestFeature: {
@@ -205,6 +205,7 @@ const styles = StyleSheet.create({
   },
   featuredFLItem: {
     alignSelf:'center',
+   
     marginHorizontal: 5,
     ...Platform.select({
       ios: { shadowColor: 'gray', shadowOpacity: 0.2, shadowRadius: 2 },
@@ -213,8 +214,10 @@ const styles = StyleSheet.create({
     height: 104,
     width: width(90),
     flexDirection: 'row',
-    backgroundColor: '#ffffff',
-    borderRadius: 15,
+    backgroundColor: '#202224',
+    // borderRadius: 15,
+    borderTopRightRadius:15,
+    borderBottomLeftRadius:15,
     marginVertical: 5,
     marginBottom: 6
   },
@@ -256,7 +259,7 @@ const styles = StyleSheet.create({
     marginBottom: 1,
     marginLeft: 10,
     fontSize: ListingTitle, //totalSize(S16)
-    color: 'black',
+    color: 'white',
   },
   subHeadingTxt: {
     marginTop: 0,

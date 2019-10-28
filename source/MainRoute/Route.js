@@ -58,7 +58,7 @@ const RootStack = createStackNavigator(
       navigationOptions: ({ navigation }) => ({
         title: navigation.getParam('otherParam', store.settings.data.menu.home),
         header: (
-          <View style={[styles.overlyHeader, { backgroundColor: 'black' }]}>
+          <View style={[styles.overlyHeader, { backgroundColor: '#2e3034' }]}>
             <TouchableOpacity style={styles.drawerBtnCon} onPress={() => {
               navigation.toggleDrawer()
             }}>
@@ -66,29 +66,31 @@ const RootStack = createStackNavigator(
             </TouchableOpacity>
             <View style={styles.headerTxtCon}>
               {/* <View style={{ backgroundColor: '#fff', height: '90%', width: '90%', borderRadius: 10, alignItems: 'center', alignContent: 'center' }}> */}
-                <TextInput
-                  onChangeText={(value) => this.setState({ email: value })}
-                  underlineColorAndroid='transparent'
-                  placeholder={"What are you looking for..."}
-                  // placeholderTextColor='black'
-                  underlineColorAndroid='transparent'
-                  autoCorrect={false}
-                  // onFocus={() => this.navigateToScreen('SearchingScreen', 'search')}
-                  style={{ height: wp(10), paddingLeft: 15, paddingTop: 10, backgroundColor: '#fff', width: '100%', borderRadius: 8, fontSize: totalSize(1.5), }}
+                <Image
+                source={require('../../source/images/splash_logo.png')}
+                resizeMode="contain"
+                style={{height:wp('12'),width:wp('32'),alignSelf:'center',position:'absolute',left:'30%'}}
                 />
-
               </View>
-              <View style={{backgroundColor:'red',alignContent:'center',alignItems:'center',justifyContent:'center',marginLeft:5,height:wp('10'),width:wp('10'),borderRadius:wp('5')}}>
+              {/* <View style={{backgroundColor:'red',alignContent:'center',alignItems:'center',justifyContent:'center',marginLeft:5,height:wp('10'),width:wp('10'),borderRadius:wp('5')}}> */}
+                <View style={{flexDirection:'row',marginRight:wp('2'),position:'absolute',right:wp('1')}}>
                 <Icon
                   size={wp(7)}
                   name='search'
                   type='evilicon'
                   color='#fff'
-                  containerStyle={{ marginLeft: 0, marginVertical: 3 }}
+                  containerStyle={{ marginLeft: 0, marginVertical: 3,marginRight:wp('2') }}
                 // containerStyle={styles.searchIcon}
                 // onPress={() => this.navigateToScreen('SearchingScreen', 'search')}
                 />
-              </View>
+                <Image
+                     source={require('../../source/images/map_pin_icon_white.png')}
+                     resizeMode="contain"
+                     style={{height:wp('6'),width:wp('6'),alignSelf:'center'}}
+                />
+                </View>
+             
+              {/* </View> */}
 
               {/* <Text style={styles.headerTxt}>{navigation.getParam('otherParam', store.settings.data.menu.home)}</Text> */}
             {/* </View> */}
