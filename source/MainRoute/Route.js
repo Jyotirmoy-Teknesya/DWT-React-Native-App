@@ -58,36 +58,32 @@ const RootStack = createStackNavigator(
       navigationOptions: ({ navigation }) => ({
         title: navigation.getParam('otherParam', store.settings.data.menu.home),
         header: (
-          <View style={[styles.overlyHeader, { backgroundColor: 'black' }]}>
+          <View style={[styles.overlyHeader, { backgroundColor: 'white' }]}>
             <TouchableOpacity style={styles.drawerBtnCon} onPress={() => {
               navigation.toggleDrawer()
             }}>
-              <Image source={require('../images/menu_newhome.png')} style={styles.drawerBtn} />
+              <Image source={require('../images/menu_newhome2.png')} style={styles.drawerBtn} />
             </TouchableOpacity>
             <View style={styles.headerTxtCon}>
               {/* <View style={{ backgroundColor: '#fff', height: '90%', width: '90%', borderRadius: 10, alignItems: 'center', alignContent: 'center' }}> */}
-                <TextInput
-                  onChangeText={(value) => this.setState({ email: value })}
-                  underlineColorAndroid='transparent'
-                  placeholder={"What are you looking for..."}
-                  // placeholderTextColor='black'
-                  underlineColorAndroid='transparent'
-                  autoCorrect={false}
-                  // onFocus={() => this.navigateToScreen('SearchingScreen', 'search')}
-                  style={{ height: wp(10), paddingLeft: 15, paddingTop: 10, backgroundColor: '#fff', width: '100%', borderRadius: 8, fontSize: totalSize(1.5), }}
-                />
+               
 
               </View>
-              <View style={{backgroundColor:'red',alignContent:'center',alignItems:'center',justifyContent:'center',marginLeft:5,height:wp('10'),width:wp('10'),borderRadius:wp('5')}}>
+              <View style={{alignContent:'center',flexDirection:'row',alignItems:'center',justifyContent:'center',position:'absolute',right: wp('2'),}}>
                 <Icon
                   size={wp(7)}
                   name='search'
                   type='evilicon'
-                  color='#fff'
-                  containerStyle={{ marginLeft: 0, marginVertical: 3 }}
+                  color='black'
+                  containerStyle={{ marginLeft: 0, marginVertical: 3,marginRight:wp('2') }}
                 // containerStyle={styles.searchIcon}
                 // onPress={() => this.navigateToScreen('SearchingScreen', 'search')}
                 />
+
+              <Image source={require('../images/map_pin_icon.png')}
+              resizeMode="contain"
+              style={{height:wp('5'),width:wp('7')}} />
+
               </View>
 
               {/* <Text style={styles.headerTxt}>{navigation.getParam('otherParam', store.settings.data.menu.home)}</Text> */}
