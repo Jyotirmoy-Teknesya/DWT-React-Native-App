@@ -75,7 +75,7 @@ const RootStack = createStackNavigator(
                 autoCorrect={false}
                 placeholderTextColor={"#fff"}
                 // onFocus={() => this.navigateToScreen('SearchingScreen', 'search')}
-                style={{ height: wp(10), paddingLeft: 15, paddingTop: 10, backgroundColor: '#000', color: '#fff', width: '100%', borderRadius: wp('6'), fontSize: totalSize(1.5), }}
+                style={{ height: wp(10), paddingLeft: 15, paddingVertical:wp('2.5'), backgroundColor: '#000', color: '#fff', width: '100%', borderRadius: wp('6'), fontSize: totalSize(1.5), }}
               />
               <Icon
                 size={wp(6)}
