@@ -216,7 +216,7 @@ import { widthPercentageToDP as wp, heightPercentageToDP as hp } from '../../hel
                 <View style={{ marginHorizontal: 20 }}>
 
                   <View style={{ width: width(90), flexDirection: 'row', alignContent: 'center', alignItems: 'center' }}>
-                    <Text style={{ fontSize: 20, fontFamily: 'Quicksand-Bold', color: '#fff', marginVertical: 15 }}>Best Location</Text>
+                    <Text style={{ fontSize: 20,  color: '#fff', marginVertical: 15 }}>Best Location</Text>
 
                     <Text style={{ marginVertical: 20, fontSize: 10, color: '#fff', fontWeight: 'bold', position: 'absolute', right: 0 }}>See All</Text>
 
