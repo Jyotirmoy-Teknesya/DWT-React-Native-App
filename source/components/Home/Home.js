@@ -168,12 +168,12 @@ import { widthPercentageToDP as wp, heightPercentageToDP as hp } from '../../hel
               />
             }>
 
-            <View style={{ paddingLeft: wp('5'),paddingTop:wp('5'),marginBottom:wp('5')}}>
+            <View style={{ paddingLeft: wp('5'),marginBottom:wp('5')}}>
 
 
 
-              <Text style={{ color: '#fff', fontSize: wp('6'), fontWeight: 'bold' }}>Find the Best Place</Text>
-              <Text style={{ color: '#fff', fontSize: wp('3') }}>More than 17,000 business listed</Text>
+              <Text style={{ color: '#000', fontSize: wp('6'), fontWeight: 'bold' }}>Find the Best Place</Text>
+              <Text style={{ color: '#000', fontSize: wp('3') }}>More than 17,000 business listed</Text>
 
 
             </View>
@@ -184,19 +184,16 @@ import { widthPercentageToDP as wp, heightPercentageToDP as hp } from '../../hel
             <View style={styles.topViewCon}>
             {
               home.categories_enabled ?
-                <View style={{ flex: 1, width: width(100), backgroundColor: 'transparent', alignItems: 'center', position: 'absolute', marginVertical: 1 }}>
-                  <View style={{flexDirection:"row",width:'100%'}}>
-                    <Text style={{fontSize:wp('5'),fontWeight:'bold',color:'#000',position: 'absolute',left:wp('5')}}>All Categories</Text>
-                    <Text style={{fontSize:10,fontWeight:'bold',color:data.main_clr,marginTop:wp('2'),position: 'absolute',right:wp('5')}}>{'See All'}</Text>
-                    
-                  </View>
+                <View style={{ width: width(100), backgroundColor: 'transparent', alignItems: 'center', position: 'absolute', marginVertical: 1 }}>
+                  
                
                   <View style={styles.flatlistCon}>
                     <FlatList
+                      numColumns={3}
                       data={home.categories}
                       renderItem={({ item, key }) =>
                         <View style={{
-                          marginTop: 15,
+                          // marginTop: 15,
                           marginBottom: 8,
                           marginRight: 15,
                           alignContent: 'center',
@@ -211,13 +208,7 @@ import { widthPercentageToDP as wp, heightPercentageToDP as hp } from '../../hel
                                 this.navigateToScreen('SearchingScreen', data.menu.adv_search)
                             }}
                           >
-                            <Animatable.View
-                              duration={2000}
-                              animation="zoomIn"
-                              iterationCount={1}
-                              direction="alternate">
-                              <Image style={{ height: height(5), width: width(10), resizeMode: 'contain' }} source={{ uri: item.img }} />
-                            </Animatable.View>
+                            
                           
                             <Text style={[styles.childTxt, { fontWeight: '500', width: wp('18') }]}>{item.name}</Text>
 
@@ -226,8 +217,8 @@ import { widthPercentageToDP as wp, heightPercentageToDP as hp } from '../../hel
 
                         </View>
                       }
-                      horizontal={true}
-                      showsHorizontalScrollIndicator={false}
+                      // horizontal={true}
+                      // showsHorizontalScrollIndicator={false}
                     // keyExtractor={item => item.email}
                     />
                   </View>

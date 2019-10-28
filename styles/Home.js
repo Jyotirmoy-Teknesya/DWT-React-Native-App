@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
   },
   subCon: {
     flex: 1,
-    backgroundColor: '#000',
+    backgroundColor: '#fff',
     alignItems: 'center',
   },
   overlyHeader: {
@@ -66,9 +66,10 @@ const styles = StyleSheet.create({
   topViewCon: {
     alignSelf: 'center',
     overflow: 'hidden',
-    height: height(20),marginTop:wp('5'),
+    height: height(20),
     // backgroundColor:'red',
     width: width(100),
+    // flex:1,
     overflow: 'hidden',
     // backgroundColor:'red' 
   },
@@ -137,15 +138,16 @@ const styles = StyleSheet.create({
   flatlistCon: {
     // height: height(43),
     flex: 1,
-    width: width(92),
+    width: width(88),
     alignSelf: 'center',
-    marginTop:wp('5'),
+    // marginTop:wp('5'),
     // position: 'absolute',
+    // backgroundColor:"red",
     alignItems: 'flex-end',
     // marginTop: Platform.OS === 'ios' ? 150 : 140,
   },
   flatlistChild: {
-    height: width(22),
+    height: width(8),
     width: width(24),
     // zIndex:-1,
 
@@ -155,7 +157,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#f9f9f9',
-    borderRadius: width(2),
+    borderRadius: width(6),
    
   },
   cateCon: {

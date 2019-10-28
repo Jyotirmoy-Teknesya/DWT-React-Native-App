@@ -58,32 +58,28 @@ const RootStack = createStackNavigator(
       navigationOptions: ({ navigation }) => ({
         title: navigation.getParam('otherParam', store.settings.data.menu.home),
         header: (
-          <View style={[styles.overlyHeader, { backgroundColor: 'black' }]}>
+          <View style={[styles.overlyHeader, { backgroundColor: 'white' }]}>
             <TouchableOpacity style={styles.drawerBtnCon} onPress={() => {
               navigation.toggleDrawer()
             }}>
-              <Image source={require('../images/menu_newhome.png')} style={styles.drawerBtn} />
+              <Image source={require('../images/menu_newhome2.png')} style={styles.drawerBtn} />
             </TouchableOpacity>
             <View style={styles.headerTxtCon}>
               {/* <View style={{ backgroundColor: '#fff', height: '90%', width: '90%', borderRadius: 10, alignItems: 'center', alignContent: 'center' }}> */}
-                <Image
-                source={require('../../source/images/splash_logo.png')}
-                resizeMode="contain"
-                style={{height:wp('12'),width:wp('32'),alignSelf:'center',position:'absolute',left:wp(5)}}
-                />
+               
               </View>
               <View style={{flexDirection:'row',marginRight:wp('2'),position:'absolute',right:wp('1')}}>
                 <Icon
                   size={wp(7)}
                   name='search'
                   type='evilicon'
-                  color='#fff'
+                  color='#000'
                   containerStyle={{ marginLeft: 0, marginVertical: 3,marginRight:wp('2') }}
                 // containerStyle={styles.searchIcon}
                 // onPress={() => this.navigateToScreen('SearchingScreen', 'search')}
                 />
                 <Image
-                     source={require('../../source/images/map_pin_icon_white.png')}
+                     source={require('../../source/images/map_pin_icon.png')}
                      resizeMode="contain"
                      style={{height:wp('6'),width:wp('6'),alignSelf:'center'}}
                 />
