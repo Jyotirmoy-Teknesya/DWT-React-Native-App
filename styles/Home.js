@@ -70,8 +70,8 @@ const styles = StyleSheet.create({
     height: height(6),
     // backgroundColor:'red',
     // backgroundColor:'red',
-    width: width(100),
-    overflow: 'hidden',
+    width: '100%',
+    // overflow: 'hidden',
     // backgroundColor:'red' 
   },
   InnerRadius: {

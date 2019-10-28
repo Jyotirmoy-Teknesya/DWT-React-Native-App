@@ -171,7 +171,7 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from '../../helpe
             <View style={styles.topViewCon}>
             {
               home.categories_enabled ?
-                <View style={{ flex: 1, width: width(100), backgroundColor: 'transparent', alignItems: 'center', position: 'absolute',  }}>
+                <View style={{  width:'100%',  alignItems: 'center', position: 'absolute',  }}>
                   <View style={[styles.flatlistCon,{backgroundColor:'black',paddingLeft:wp('2')}]}>
                     <FlatList
                       data={home.categories}
@@ -270,7 +270,7 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from '../../helpe
                 <View style={{ marginHorizontal: 20 }}>
 
                   <View style={{ width: width(90), flexDirection: 'row', alignContent: 'center', alignItems: 'center' }}>
-                    <Text style={{ fontSize: 20, fontFamily: 'Quicksand-Bold', color: COLOR_SECONDARY, marginVertical: 15 }}>Best Location</Text>
+                    <Text style={{ fontSize: 20,  color: COLOR_SECONDARY, marginVertical: 15 }}>Best Location</Text>
 
                     <Text style={{ marginVertical: 20, fontSize: 10, color: 'red', fontWeight: 'bold', position: 'absolute', right: 0 }}>See All</Text>
 
