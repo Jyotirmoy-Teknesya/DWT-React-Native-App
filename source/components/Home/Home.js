@@ -28,6 +28,7 @@ import EventComponent from './EventComponent';
 import { COLOR_PRIMARY, COLOR_SECONDARY } from '../../../styles/common';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from '../../helpers/Responsive'
 import Swipeable from './Swipeable'
+import Carousel from 'react-native-snap-carousel';
 
 @observer export default class Home extends Component<Props> {
   static Cards = [
@@ -189,9 +190,9 @@ import Swipeable from './Swipeable'
                 onRefresh={this.homeData}
               />
             }>
-            
 
-            <View style={[styles.topViewCon,{height:wp('15')}]}>
+
+            <View style={[styles.topViewCon, { height: wp('15') }]}>
               {
                 home.categories_enabled ?
                   <View style={{ flex: 1, width: width(100), backgroundColor: 'transparent', alignItems: 'center', position: 'absolute', marginVertical: 1 }}>
@@ -207,7 +208,7 @@ import Swipeable from './Swipeable'
                             // marginHorizontal: 10,
                           }}>
 
-                            <TouchableOpacity key={key} style={[styles.flatlistChild,{backgroundColor:'#fff',flexDirection:'row',width:wp('34'),height:wp('10'),borderRadius:wp('5')}]}
+                            <TouchableOpacity key={key} style={[styles.flatlistChild, { backgroundColor: '#fff', flexDirection: 'row', width: wp('34'), height: wp('10'), borderRadius: wp('5') }]}
                               onPress={() => {
                                 store.CATEGORY = item,
                                   store.moveToSearch = true,
@@ -224,7 +225,7 @@ import Swipeable from './Swipeable'
                               {/* <View style={{ height: wp(4), width: wp(4), alignContent: 'center', alignItems: 'center', justifyContent: 'center', backgroundColor: 'red', position: 'absolute', borderRadius: wp(2), top: 0, right: 0 }}>
                                 <Text style={{ color: '#fff', fontSize: width(1.6), fontWeight: 'bold' }}>01</Text>
                               </View> */}
-                            <Text style={[styles.childTxt, { fontWeight: '500', width: wp('18') }]}>{item.name}</Text>
+                              <Text style={[styles.childTxt, { fontWeight: '500', width: wp('18') }]}>{item.name}</Text>
 
                             </TouchableOpacity>
 
@@ -242,13 +243,57 @@ import Swipeable from './Swipeable'
                   null
               }
             </View>
-            
-            
+
+
             {
               home.featured_enabled && home.featured_listings.has_featured_listings ?
-              <Swipeable cards={home.featured_listings.list} />  
-              
-              // <View style={{ width: width(100), alignItems: 'center', justifyContent: 'center', backgroundColor: '#232323' }}>
+                // <Swipeable cards={home.featured_listings.list} />  
+                <Carousel
+                  layout={'default'}
+                  // loop={true}
+                  ref={(c) => { this._carousel = c; }}
+                  data={home.featured_listings.list}
+                  renderItem={({ item, index }) =>
+
+                    <View>
+                      <Image
+                        source={{ uri: item.image }}
+                        style={{ height: wp('66'), width: wp('70') }}
+                        resizeMode="contain"
+                      />
+
+
+                      <View style={{ width: '100%', height: '100%', backgroundColor: 'rgba(0,0,0,0.5)', position: 'absolute', bottom: 0 }}>
+                        <View style={{ backgroundColor: item.color_code, padding: wp('1'), paddingHorizontal: wp('2.5'), borderRadius: wp('1'), position: 'absolute', alignItems: 'center', alignContent: 'center', right: wp('2'), top: wp('3') }}>
+                          <Text style={{ fontSize: wp('3'), color: '#fff', fontWeight: 'bold' }}>{item.business_hours_status}</Text>
+                        </View>
+                        <View style={{ bottom: 0, position: 'absolute', marginLeft: wp('4') }}>
+                          <Text style={{ color: '#fff', marginBottom: 4, fontWeight: 'bold', width: wp('60'), marginLeft: wp('1'), fontSize: wp('5') }}>{item.listing_title}</Text>
+                          <View style={{ marginBottom: 8, width: wp(45), flexDirection: 'row', alignItems: 'center', alignContent: 'center' }}>
+                            <Icon
+                              size={16}
+                              name='location'
+                              type='evilicon'
+                              color='white'
+                              containerStyle={{ marginHorizontal: 0, marginVertical: 0 }}
+                            />
+                            <Text style={{ fontSize: wp('3'), color: '#fff' }}>Arkasana, United States</Text>
+                          </View>
+                        </View>
+
+
+                      </View>
+
+                    </View>
+
+                  }
+                  sliderWidth={wp('100')}
+                  itemWidth={wp('70')}
+
+                ></Carousel>
+
+                // <View/>
+                // <View style={{ width: width(100), alignItems: 'center', justifyContent: 'center', backgroundColor: '#232323' }}>
                 //   <View style={{ marginHorizontal: 20, width: width(90), flexDirection: 'row', alignContent: 'center', alignItems: 'center' }}>
                 //     <Text style={{ marginVertical: 20, fontSize: 20, color: COLOR_PRIMARY, fontWeight: 'bold' }}>{home.featured_list_txt}</Text>
 
@@ -294,7 +339,7 @@ import Swipeable from './Swipeable'
                 //               </View>
                 //             </View>
 
-                           
+
                 //           </TouchableOpacity>
                 //         )
                 //       })
@@ -304,12 +349,12 @@ import Swipeable from './Swipeable'
                 :
                 null
             }
-             {
+            {
               home.location_enabled ?
                 <View style={{ marginHorizontal: 20 }}>
 
                   <View style={{ width: width(90), flexDirection: 'row', alignContent: 'center', alignItems: 'center' }}>
-                    <Text style={{ fontSize: 20, fontFamily: 'Quicksand-Bold', color: COLOR_SECONDARY, marginVertical: 15 }}>Best Location</Text>
+                    <Text style={{ fontSize: 20, color: COLOR_SECONDARY, marginVertical: 15 }}>Best Location</Text>
 
                     <Text style={{ marginVertical: 20, fontSize: 10, color: 'red', fontWeight: 'bold', position: 'absolute', right: 0 }}>See All</Text>
 
@@ -331,7 +376,7 @@ import Swipeable from './Swipeable'
                                   this.navigateToScreen('SearchingScreen', data.menu.adv_search)
                               }}>
                               {/* <View style={{ height: 10 }} /> */}
-                              <View style={{ width: width(43.5), paddingHorizontal: wp('5'), paddingVertical: wp('3'), backgroundColor: '#fff', borderRadius: wp(3),backgroundColor:"#fff" }}>
+                              <View style={{ width: width(43.5), paddingHorizontal: wp('5'), paddingVertical: wp('3'), backgroundColor: '#fff', borderRadius: wp(3), backgroundColor: "#fff" }}>
                                 <Avatar
                                   size="medium"
                                   rounded
@@ -396,19 +441,19 @@ import Swipeable from './Swipeable'
 
             {
               home.listings_enabled ?
-                <View style={{backgroundColor:'#f9f9f9', width: '100%', marginTop:wp('5'), alignSelf: 'center', alignItems: 'center', borderTopLeftRadius:wp('10'),borderTopRightRadius:wp('10'),paddingBottom:wp('5') }}>
-                  <View style={{flexDirection: 'row',paddingHorizontal:wp('5'),paddingTop:wp('5'),marginBottom:wp('2')}}>
-                  <View style={{ flex: 1, justifyContent: 'center', alignItems: 'flex-start' }}>
-                    <Text style={styles.recList}>{home.section_txt}</Text>
-                  </View>
-                  <TouchableOpacity style={[styles.readMoreBtnCon]} onPress={() => this.navigateToScreen('SearchingScreen', data.menu.adv_search)}>
-                    <Text style={[styles.latestFeature, { fontSize: 10, fontWeight: 'bold', marginTop: 3, color: store.settings.data.navbar_clr }]}>See All</Text>
-                    {/* <Text style={[styles.latestFeature, { fontSize: 10,fontWeight:'bold', marginTop: 3, color: store.settings.data.navbar_clr }]}>{home.section_btn}</Text> */}
-                  </TouchableOpacity>
+                <View style={{ backgroundColor: '#f9f9f9', width: '100%', marginTop: wp('5'), alignSelf: 'center', alignItems: 'center', borderTopLeftRadius: wp('10'), borderTopRightRadius: wp('10'), paddingBottom: wp('5') }}>
+                  <View style={{ flexDirection: 'row', paddingHorizontal: wp('5'), paddingTop: wp('5'), marginBottom: wp('2') }}>
+                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'flex-start' }}>
+                      <Text style={styles.recList}>{home.section_txt}</Text>
+                    </View>
+                    <TouchableOpacity style={[styles.readMoreBtnCon]} onPress={() => this.navigateToScreen('SearchingScreen', data.menu.adv_search)}>
+                      <Text style={[styles.latestFeature, { fontSize: 10, fontWeight: 'bold', marginTop: 3, color: store.settings.data.navbar_clr }]}>See All</Text>
+                      {/* <Text style={[styles.latestFeature, { fontSize: 10,fontWeight:'bold', marginTop: 3, color: store.settings.data.navbar_clr }]}>{home.section_btn}</Text> */}
+                    </TouchableOpacity>
 
 
                   </View>
-              
+
                   <FlatList
                     data={home.listings}
                     showsVerticalScrollIndicator={false}
@@ -461,7 +506,7 @@ import Swipeable from './Swipeable'
                 :
                 null
                 */}
-          
+
             {
               home.events_enabled ?
                 <View style={styles.cate_con}>

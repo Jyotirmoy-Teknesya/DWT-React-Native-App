@@ -80,17 +80,17 @@ export default class Swipeable extends React.Component {
         <Interactable.View
           snapPoints={this.state.snapPoints}
           // does not work on Android
-          boundaries={
-            Platform.OS === 'ios'
-              ? {
-                left: this.state.swipeableBoundary,
-                right: Swipeable.BoundaryPadding,
-                bounce: Swipeable.BoundaryBounce,
-              }
-              : { bounce: Swipeable.BoundaryBounce }
-          }
+          // boundaries={
+          //   Platform.OS === 'ios'
+          //     ? {
+          //       left: this.state.swipeableBoundary,
+          //       right: Swipeable.BoundaryPadding,
+          //       bounce: Swipeable.BoundaryBounce,
+          //     }
+          //     : { bounce: Swipeable.BoundaryBounce }
+          // }
           horizontalOnly={true}
-          animatedNativeDriver={true}
+          // animatedNativeDriver={true}
           style={[
             styles.interactableContainer,
             { width: this.state.swipeableWidth }
