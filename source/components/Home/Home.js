@@ -30,6 +30,7 @@ import store from '../../Stores/orderStore';
 import styles from '../../../styles/Home';
 import ApiController from '../../ApiController/ApiController';
 import ListingComponent from './ListingComponent';
+import ListingComponentBox from './ListingComponentBox';
 import EventComponent from './EventComponent';
 import { COLOR_PRIMARY, COLOR_SECONDARY } from '../../../styles/common';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from '../../helpers/Responsive'
@@ -167,33 +168,47 @@ import { widthPercentageToDP as wp, heightPercentageToDP as hp } from '../../hel
                 onRefresh={this.homeData}
               />
             }>
-            <View style={{ marginLeft: wp('5') }}>
-              <Text style={{ color: '#fff', fontSize: wp('6'), fontWeight: 'bold' }}>Find the Best Place</Text>
+            <View style={{ marginLeft: wp('5'),zIndex:101 }}>
+            
+
+              <View style={{height:wp('20'),width:wp('30'),borderBottomRightRadius:wp('2'),borderTopRightRadius:wp('2'),backgroundColor:data.main_clr,position:'absolute',left:wp('-5')}}>
+
+              </View>
+              <Text style={{ color: '#fff', fontSize: wp('6'),marginTop:wp('3.5'), fontWeight: 'bold' }}>Find the Best Place</Text>
               <Text style={{ color: '#fff', fontSize: wp('3') }}>More than 17,000 business listed</Text>
 
 
-              <View style={{ flexDirection: 'row', marginTop: wp('4') }}>
-                <View style={{ height: wp('10'), width: wp('80'), backgroundColor: '#202224', borderRadius: wp('1.5') }}>
-                  <TextInput
-                    placeholder="What are you looking for..."
-                    placeholderTextColor="#fff"
+            </View>
+            {
+              home.listings_enabled ?
+                <View style={{ backgroundColor: '#2e3034', width: '100%', marginTop: wp('5'), alignSelf: 'center', alignItems: 'center', paddingBottom: wp('5') }}>
+                  <View style={{ flexDirection: 'row', paddingHorizontal: wp('5'), paddingTop: wp('5'), marginBottom: wp('2') }}>
+                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'flex-start' }}>
+                      <Text style={styles.recList}>{home.section_txt}</Text>
+                    </View>
+                    <TouchableOpacity style={[styles.readMoreBtnCon]} onPress={() => this.navigateToScreen('SearchingScreen', data.menu.adv_search)}>
+                      <Text style={[styles.latestFeature, { fontSize: 10, fontWeight: 'bold', marginTop: 3, color: '#fff' }]}>See All</Text>
+                      {/* <Text style={[styles.latestFeature, { fontSize: 10,fontWeight:'bold', marginTop: 3, color: store.settings.data.navbar_clr }]}>{home.section_btn}</Text> */}
+                    </TouchableOpacity>
 
-                    style={{ color: '#fff', paddingLeft: wp('2'), alignContent: 'center', alignItems: 'center', fontSize: wp('3') }}
+
+                  </View>
+
+                  <FlatList
+                    data={home.listings}
+                    numColumns={2}
+                    showsVerticalScrollIndicator={false}
+                    renderItem={({ item, key }) =>
+                      <ListingComponentBox item={item} key={key} listStatus={false} />
+                    }
+                    horizontal={false}
+                    showsHorizontalScrollIndicator={false}
+                  // keyExtractor={item => item.email}
                   />
                 </View>
-                <View style={{backgroundColor:'red',marginLeft:wp('2'),borderRadius:wp('1.5'),paddingHorizontal:wp('2.5'),alignContent:'center',alignItems:'center',justifyContent:'center'}}>
-                  <Icon
-                    size={wp(5)}
-                    name='search'
-                    type='evilicon'
-                    color='#fff'
-                    containerStyle={{ marginLeft: 0,  }} />
-                </View>
-              </View>
-
-
-            </View>
-
+                :
+                null
+            }
 
 
             {
@@ -286,35 +301,7 @@ import { widthPercentageToDP as wp, heightPercentageToDP as hp } from '../../hel
                 null
             }
 
-            {
-              home.listings_enabled ?
-                <View style={{ backgroundColor: '#2e3034', width: '100%', marginTop: wp('5'), alignSelf: 'center', alignItems: 'center', paddingBottom: wp('5') }}>
-                  <View style={{ flexDirection: 'row', paddingHorizontal: wp('5'), paddingTop: wp('5'), marginBottom: wp('2') }}>
-                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'flex-start' }}>
-                      <Text style={styles.recList}>{home.section_txt}</Text>
-                    </View>
-                    <TouchableOpacity style={[styles.readMoreBtnCon]} onPress={() => this.navigateToScreen('SearchingScreen', data.menu.adv_search)}>
-                      <Text style={[styles.latestFeature, { fontSize: 10, fontWeight: 'bold', marginTop: 3, color: '#fff' }]}>See All</Text>
-                      {/* <Text style={[styles.latestFeature, { fontSize: 10,fontWeight:'bold', marginTop: 3, color: store.settings.data.navbar_clr }]}>{home.section_btn}</Text> */}
-                    </TouchableOpacity>
-
-
-                  </View>
-
-                  <FlatList
-                    data={home.listings}
-                    showsVerticalScrollIndicator={false}
-                    renderItem={({ item, key }) =>
-                      <ListingComponent item={item} key={key} listStatus={false} />
-                    }
-                    horizontal={false}
-                    showsHorizontalScrollIndicator={false}
-                  // keyExtractor={item => item.email}
-                  />
-                </View>
-                :
-                null
-            }
+          
             {
               home.events_enabled ?
                 <View style={styles.cate_con}>

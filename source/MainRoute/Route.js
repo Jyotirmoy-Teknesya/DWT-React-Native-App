@@ -66,11 +66,7 @@ const RootStack = createStackNavigator(
             </TouchableOpacity>
             <View style={styles.headerTxtCon}>
               {/* <View style={{ backgroundColor: '#fff', height: '90%', width: '90%', borderRadius: 10, alignItems: 'center', alignContent: 'center' }}> */}
-                <Image
-                source={require('../../source/images/splash_logo.png')}
-                resizeMode="contain"
-                style={{height:wp('12'),width:wp('32'),alignSelf:'center',position:'absolute',left:'30%'}}
-                />
+              
               </View>
               {/* <View style={{backgroundColor:'red',alignContent:'center',alignItems:'center',justifyContent:'center',marginLeft:5,height:wp('10'),width:wp('10'),borderRadius:wp('5')}}> */}
                 <View style={{flexDirection:'row',marginRight:wp('2'),position:'absolute',right:wp('1')}}>
