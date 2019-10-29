@@ -409,7 +409,7 @@ const styles = StyleSheet.create({
   cate_text: {
     fontSize: 8,
     color: COLOR_PRIMARY,
-    marginRight: 5
+    marginRight: 1
   },
   btnIcon: {
     height: height(2.5),

@@ -7,6 +7,7 @@ import { withNavigation } from 'react-navigation';
 import store from '../../Stores/orderStore';
 import styles from '../../../styles/Home';
 import { Icon, Avatar } from 'react-native-elements';
+import { widthPercentageToDP as wp } from '../../helpers/Responsive';
 
 class EventComponent extends Component<Props> {
     render() {
@@ -22,9 +23,10 @@ class EventComponent extends Component<Props> {
                         </View>
                     </View>
                     <View style={{ height: height(15), borderRadius: 5, justifyContent: 'center' }}>
-                        <View style={{ flexDirection: 'row', marginHorizontal: 10 }}>
-                            <Text style={styles.cate_text}>{item.event_start_date}  -</Text>
-                            <Text style={styles.cate_text}>{item.event_end_date}</Text>
+                        <View style={{ flexDirection: 'row', marginHorizontal: 10,}}>
+                            <Text style={[styles.cate_text,{width:wp('17'),alignSelf:'center'}]}>{item.event_start_date}</Text>
+                            <Text style={{color:'#fff',alignSelf:'center'}}>-</Text>
+                            <Text style={[styles.cate_text,{width:wp('19'),alignSelf:'center',marginLeft:5,marginRight:0}]}>{item.event_end_date}</Text>
                         </View>
                         <View style={{ alignItems: 'flex-start' }}>
                             <Text style={styles.eventTitle}>{item.event_title}</Text>
