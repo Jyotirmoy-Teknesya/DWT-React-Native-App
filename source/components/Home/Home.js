@@ -27,7 +27,6 @@ import ListingComponent from './ListingComponent';
 import EventComponent from './EventComponent';
 import { COLOR_PRIMARY, COLOR_SECONDARY } from '../../../styles/common';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from '../../helpers/Responsive'
-import Swipeable from './Swipeable'
 import Carousel from 'react-native-snap-carousel';
 
 @observer export default class Home extends Component<Props> {
