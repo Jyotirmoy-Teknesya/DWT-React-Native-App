@@ -309,7 +309,7 @@ import { widthPercentageToDP as wp, heightPercentageToDP as hp } from '../../hel
                     <Text style={styles.recList}>{home.latest_events}</Text>
                   </View>
                   <TouchableOpacity style={[styles.readMoreBtnCon, { borderColor: store.settings.data.navbar_clr }]} onPress={() => this.navigateToScreen('PublicEvents', 'Home')}>
-                    <Text style={[styles.latestFeature, { fontSize: 10, fontWeight: 'bold', color: 'red' }]}>See All</Text>
+                    <Text style={[styles.latestFeature, { fontSize: 10, fontWeight: 'bold', color: '#fff' }]}>See All</Text>
                     {/* <Text style={[styles.latestFeature, { fontSize: 13 }]}>{home.view_all_events}</Text> */}
                   </TouchableOpacity>
                 </View>
